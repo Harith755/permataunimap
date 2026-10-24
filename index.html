@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PERMATA UNIMAP - Persatuan Mahasiswa Terengganu UniMAP</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons (Versi Stabil) -->
+  <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+
+  <!-- FontAwesome untuk Ikon Media Sosial Brand (Facebook, Instagram, TikTok) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#F5E61B', // Kuning Terengganu / Royal Yellow
+              yellowDark: '#D4C309',
+              blue: '#1E3A8A',   // Biru UniMAP Deep Royal
+              blueLight: '#3B82F6',
+              red: '#DC2626',    // Merah Terengganu Accent
+              dark: '#0F172A',
+              cardDark: '#1E293B',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    .dark ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+    .dark ::-webkit-scrollbar-thumb { background: #334155; }
+
+    /* Custom Tree Lines & Polish */
+    .tree-branch::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background-color: #cbd5e1;
+      transform: translateX(-50%);
+    }
+    .dark .tree-branch::before {
+      background-color: #334155;
+    }
+    
+    /* Smooth Transitions */
+    .trans-all { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-brand-yellow selection:text-slate-900 transition-colors duration-300">
+
+  <!-- APP CONTAINER -->
+  <div id="app" class="min-h-screen flex flex-col">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div id="topBanner" class="bg-brand-yellow text-slate-900 px-4 py-2 text-xs md:text-sm font-semibold flex items-center justify-between shadow-inner">
+      <div class="container mx-auto flex items-center justify-center gap-2 text-center">
+        <span class="bg-brand-blue text-white text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-full">Penting</span>
+        <span id="bannerText">Permohonan Bantuan Anak Pokok Terengganu 2026 Kini Dibuka! Klik pautan pendaftaran di bawah.</span>
+      </div>
+      <button onclick="closeBanner()" class="text-slate-900 hover:opacity-75 p-1">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+<!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-b border-slate-200 dark:border-slate-800 transition-colors">
+      <div class="container mx-auto px-4 md:px-8 h-20 flex items-center justify-between gap-4">
+        
+<!-- Logo & Title -->
+<a href="#" class="flex items-center gap-3 group">
+  <!-- Kotak bingkai logo dikawal saiznya (w-12 h-12 = 48px x 48px) -->
+  <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-blue via-brand-blueLight to-brand-yellow p-0.5 shadow-md group-hover:scale-105 transition-all flex-shrink-0">
+    <div class="w-full h-full bg-white dark:bg-slate-900 rounded-[10px] flex items-center justify-center overflow-hidden">
+      <img src="https://i.postimg.cc/L8hF27sH/permata-logo.png" alt="Logo PERMATA Universiti Malaysia Perlis" class="w-full h-full object-contain p-1">
+    </div>
+  </div>
+  <div>
+    <div class="font-black text-lg md:text-xl leading-none text-slate-900 dark:text-white flex items-center gap-1.5">
+      PERMATA <span class="text-brand-blue dark:text-brand-yellow">UniMAP</span>
+    </div>
+    <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-wide uppercase mt-0.5">Persatuan Mahasiswa Terengganu</p>
+  </div>
+</a>
+
+        <!-- Menu Navigasi Desktop -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700 dark:text-slate-300">
+          <a href="#mengenai" class="hover:text-brand-blue dark:hover:text-brand-yellow transition-colors">Mengenai</a>
+          <a href="#crest" class="hover:text-brand-blue dark:hover:text-brand-yellow transition-colors">Pengertian Logo</a>
+          <a href="#kepimpinan" class="hover:text-brand-blue dark:hover:text-brand-yellow transition-colors">Pohon Kepimpinan</a>
+          <a href="#events" class="hover:text-brand-blue dark:hover:text-brand-yellow transition-colors">Aktiviti</a>
+          <a href="#gallery" class="hover:text-brand-blue dark:hover:text-brand-yellow transition-colors">Galeri</a>
+          <a href="#hubungi" class="hover:text-brand-blue dark:hover:text-brand-yellow transition-colors">Hubungi</a>
+        </nav>
+
+        <!-- Right Tools -->
+        <div class="flex items-center gap-2">
+          
+<!-- Theme Toggle (Slide Switch) -->
+          <button onclick="toggleDarkMode()" 
+                  title="Tukar Mod Gelap / Cerah" 
+                  aria-label="Tukar Mod Gelap / Cerah"
+                  class="w-16 h-9 rounded-2xl bg-slate-200 dark:bg-slate-900 p-1 flex items-center border border-slate-300 dark:border-slate-800 shadow-inner transition-colors duration-300 relative focus:outline-none">
+            
+            <!-- Knob Geluncur (Slide Indicator) -->
+            <div class="w-7 h-7 bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-transform duration-300 transform translate-x-0 dark:translate-x-7">
+              <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+              <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
+            </div>
+          </button>
+
+          <!-- Join Button -->
+          <a href="#hubungi" class="hidden sm:flex items-center gap-2 px-4 py-2 bg-brand-yellow hover:bg-brand-yellowDark text-slate-900 rounded-lg font-extrabold text-sm shadow-md transition-all transform hover:-translate-y-0.5">
+            <span>Sertai Kami</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+
+          <!-- Mobile Menu Trigger -->
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-4 space-y-2">
+        <a href="#mengenai" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm">Mengenai</a>
+        <a href="#crest" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm">Pengertian Logo</a>
+        <a href="#kepimpinan" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm">Pohon Kepimpinan</a>
+        <a href="#events" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm">Aktiviti & Acara</a>
+        <a href="#gallery" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm">Galeri</a>
+        <a href="#hubungi" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm">Hubungi & Pendaftaran</a>
+      </div>
+    </header>
+
+    <!-- HERO SECTION (Diselaraskan ke id="mengenai") -->
+    <section id="mengenai" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-32 bg-gradient-to-b from-blue-50/50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950">
+      
+      <!-- Background Decorative Blobs -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-yellow/15 dark:bg-brand-yellow/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute top-1/3 -right-20 w-96 h-96 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 md:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="heroBadge" class="text-xs font-bold text-slate-700 dark:text-slate-300">Keahlian kini Dibuka • Universiti Malaysia Perlis</span>
+          </div>
+
+          <h1 id="heroTitle" class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] text-slate-900 dark:text-white">
+            Penyatuan Mahasiswa Terengganu <br class="hidden sm:inline"/>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue via-brand-blueLight to-brand-yellow dark:from-blue-400 dark:to-brand-yellow">
+              Di Bumi Perlis Indera Kayangan
+            </span>
+          </h1>
+
+          <p id="heroSubtitle" class="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
+            Wadah ukhuwah, kepimpinan, kebajikan, dan pembangunan modal insan mahasiswa Terengganu di Universiti Malaysia Perlis (UniMAP).
+          </p>
+
+          <!-- Hero Action Buttons (Diselaraskan pautannya) -->
+          <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <a href="#kepimpinan" class="px-7 py-3.5 bg-brand-blue hover:bg-blue-900 text-white rounded-xl font-bold text-base shadow-xl shadow-brand-blue/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+              <i data-lucide="trees" class="w-5 h-5 text-brand-yellow"></i>
+              <span>Terokai Carta Kepimpinan</span>
+            </a>
+            <a href="#mengenai" class="px-7 py-3.5 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-xl font-bold text-base shadow-md border border-slate-200 dark:border-slate-700 transition-all">
+              Mengenai PERMATA
+            </a>
+          </div>
+
+          <!-- Hero Quick Stats -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-12 max-w-3xl mx-auto">
+            <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm text-center">
+              <div class="text-3xl font-black text-brand-blue dark:text-brand-yellow" id="statMembers">300+</div>
+              <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Ahli Berdaftar</div>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm text-center">
+              <div class="text-3xl font-black text-brand-blue dark:text-brand-yellow" id="statLayers">Rekod Sesi</div>
+              <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Carta Organisasi</div>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm text-center">
+              <div class="text-3xl font-black text-brand-blue dark:text-brand-yellow" id="statEvents">15+</div>
+              <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Aktiviti Setahun</div>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm text-center">
+              <div class="text-3xl font-black text-brand-blue dark:text-brand-yellow" id="statExco">40</div>
+              <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-1">Exco & Biro</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION (Ditukar kepada id="about-info" supaya tiada konflik) -->
+    <section id="about-info" class="py-16 md:py-24 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 transition-colors">
+      <div class="container mx-auto px-4 md:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Left Info Column -->
+          <div class="space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-yellow/20 dark:bg-brand-yellow/10 text-brand-blue dark:text-brand-yellow font-bold text-xs uppercase tracking-wider">
+              <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
+              Profil Persatuan
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">
+              Mewadah Kebajikan & Sahsiah Mahasiswa Anak Terengganu
+            </h2>
+
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              Persatuan Mahasiswa Terengganu Universiti Malaysia Perlis (PERMATA UniMAP) ditubuhkan secara rasmi untuk memelihara hubungan ukhuwah, kebajikan, serta kepimpinan dalam kalangan anak-anak Terengganu yang menuntut ilmu di Perlis.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                <div class="flex items-center gap-3 font-bold text-slate-900 dark:text-white text-base mb-2">
+                  <div class="p-2 rounded-lg bg-brand-blue text-brand-yellow">
+                    <i data-lucide="target" class="w-5 h-5"></i>
+                  </div>
+                  Visi Utama
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                  Menjadi persatuan anak negeri yang cemerlang, berdaya saing, dan berintegriti di peringkat UniMAP dan kebangsaan.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                <div class="flex items-center gap-3 font-bold text-slate-900 dark:text-white text-base mb-2">
+                  <div class="p-2 rounded-lg bg-brand-yellow text-slate-900">
+                    <i data-lucide="compass" class="w-5 h-5"></i>
+                  </div>
+                  Misi Utama
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                  Memperkasakan kebajikan ahli, memupuk kepimpinan inklusif, dan mengekalkan jati diri warisan Terengganu Darul Iman.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Feature Cards -->
+          <div class="grid sm:grid-cols-2 gap-4">
+            
+            <div class="p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50/30 dark:from-slate-800 dark:to-slate-800/50 border border-blue-100 dark:border-slate-700">
+              <div class="w-10 h-10 rounded-xl bg-brand-blue text-white flex items-center justify-center mb-4 font-bold shadow-md">
+                01
+              </div>
+              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white mb-2">Kebajikan Ahli</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">Bantuan awal kemasukan, biasiswa Yayasan Terengganu, dan dana kecemasan pelajar.</p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-yellow-50/30 dark:from-slate-800 dark:to-slate-800/50 border border-amber-100 dark:border-slate-700">
+              <div class="w-10 h-10 rounded-xl bg-brand-yellow text-slate-900 flex items-center justify-center mb-4 font-bold shadow-md">
+                02
+              </div>
+              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white mb-2">Sukan & Kebudayaan</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">Penganjuran kejohanan sukan anak negeri, dikir barat, dan sukan tradisional.</p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50/30 dark:from-slate-800 dark:to-slate-800/50 border border-emerald-100 dark:border-slate-700">
+              <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-4 font-bold shadow-md">
+                03
+              </div>
+              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white mb-2">Akademik & Kerjaya</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">Bengkel kecemerlangan peperiksaan, klinik resume, dan jaringan alumni UniMAP.</p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-gradient-to-br from-rose-50 to-red-50/30 dark:from-slate-800 dark:to-slate-800/50 border border-rose-100 dark:border-slate-700">
+              <div class="w-10 h-10 rounded-xl bg-brand-red text-white flex items-center justify-center mb-4 font-bold shadow-md">
+                04
+              </div>
+              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white mb-2">Pembangunan Sahsiah</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">Program kepimpinan generasi muda, khidmat masyarakat, dan jaringan luar.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+<!-- BAHAGIAN PENGERTIAN LOGO -->
+<section id="crest" class="py-16 md:py-24 bg-slate-50 dark:bg-slate-950 transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    
+    <!-- Tajuk Seksyen -->
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-brand-blue dark:text-blue-300 font-bold text-xs rounded-full uppercase tracking-wider mb-3">
+        Simbolik & Identiti
+      </span>
+      <h2 class="text-3xl font-black text-slate-900 dark:text-white">Pengertian Logo PERMATA</h2>
+      <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">
+        Gabungan identiti Negeri Terengganu Darul Iman dan Universiti Malaysia Perlis.
+      </p>
+    </div>
+
+    <!-- Kad Elemen Logo -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+      
+      <!-- Kad 1: Warna Kuning & Merah -->
+      <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all text-center group">
+        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform">
+          <i class="fas fa-palette text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-3">Warna Kuning & Merah</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          Kuning melambangkan kesetiaan kepada KDYMM Sultan Terengganu dan semangat diraja, manakala Merah mewakili keberanian serta ketahanan mental mahasiswa.
+        </p>
+      </div>
+
+      <!-- Kad 2: Bulan & Bintang (Kad Utama Tengah) -->
+      <div class="bg-brand-blue dark:bg-slate-900 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all text-center text-white scale-105 border border-blue-400/20 group">
+        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-brand-yellow group-hover:scale-110 transition-transform">
+          <i class="fas fa-moon text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-xl mb-3">Bintang 14 Bucu & Bulan Sabit</h3>
+        <p class="text-sm text-blue-100 leading-relaxed">
+          Menandakan integrasi penuh persatuan di bawah naungan persekutuan Malaysia, berteraskan asas agama Islam, ilmu, dan keharmonian antara kaum.
+        </p>
+      </div>
+
+      <!-- Kad 3: Elemen Teknologi & UniMAP -->
+      <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all text-center group">
+        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+          <i class="fas fa-microchip text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-3">Elemen Teknologi & Biru UniMAP</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          Biru mewakili kecemerlangan akademik & kemahiran kejuruteraan UniMAP, membentuk keperibadian mahasiswa yang berinovasi tinggi.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SEKSYEN POHON KEPIMPIMAN PERMATA -->
+<section id="kepimpinan" class="py-16 md:py-24 bg-white dark:bg-slate-900 transition-colors">
+  <div class="container mx-auto px-4 md:px-8">
+    
+    <!-- Tajuk Seksyen -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="inline-block px-3 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 font-bold text-xs rounded-full uppercase tracking-wider mb-3">
+        Struktur Organisasi
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Pohon Kepimpinan PERMATA</h2>
+      
+      <p id="sessionSubTitle" class="text-slate-600 dark:text-slate-400 mt-2 text-sm md:text-base">
+        Carta Hirarki Pengurusan Persatuan Mahasiswa Terengganu UniMAP Sesi 25/26.
+      </p>
+
+      <!-- BUTANG PILIHAN SESI (SAHAJA) -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+        <button onclick="switchSession('23/24')" id="btn-2324" class="session-btn px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200">Sesi 23/24</button>
+        <button onclick="switchSession('24/25')" id="btn-2425" class="session-btn px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200">Sesi 24/25</button>
+        <button onclick="switchSession('25/26')" id="btn-2526" class="session-btn px-4 py-2 text-xs font-bold rounded-xl transition-all bg-brand-blue text-white shadow-md">Sesi 25/26</button>
+        <button onclick="switchSession('26/27')" id="btn-2627" class="session-btn px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200">Sesi 26/27</button>
+      </div>
+    </div>
+
+    <!-- WADAH KOTAK KEPIMPINAN -->
+    <div id="leadership-layers-container" class="space-y-6 max-w-5xl mx-auto">
+      <!-- Dipaparkan oleh JavaScript -->
+    </div>
+
+  </div>
+</section>
+
+    <!-- WADAH KOTAK KEPIMPINAN -->
+    <div id="leadership-layers-container" class="space-y-6 max-w-5xl mx-auto">
+      <!-- Dipaparkan oleh JavaScript -->
+    </div>
+
+  </div>
+</section>
+
+    <!-- ACTIVITIES & EVENTS CALENDAR -->
+    <section id="events" class="py-16 md:py-24 bg-slate-50 dark:bg-slate-950 transition-colors">
+      <div class="container mx-auto px-4 md:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-blue/10 dark:bg-brand-blue/30 text-brand-blue dark:text-brand-yellow font-bold text-xs uppercase tracking-wider mb-3">
+              <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+              Takwim Taklimat & Program
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Aktiviti & Event Tahunan</h2>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex flex-wrap gap-2" id="eventFilters">
+            <button onclick="filterEvents('all')" class="event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-brand-blue text-white shadow-md" data-filter="all">semua</button>
+            <button onclick="filterEvents('23/24')" class="event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700" data-filter="23/24">23/24</button>
+            <button onclick="filterEvents('24/25')" class="event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700" data-filter="24/25">24/25</button>
+            <button onclick="filterEvents('25/26')" class="event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700" data-filter="25/26">25/26</button>
+            <button onclick="filterEvents('26/27')" class="event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700" data-filter="26/27">26/27</button>
+          </div>
+        </div>
+
+        <!-- Events Grid Target -->
+        <div id="eventsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated by JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALLERY & MOMENTS -->
+    <section id="gallery" class="py-16 md:py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors">
+      <div class="container mx-auto px-4 md:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-yellow/30 text-slate-900 font-bold text-xs uppercase tracking-wider mb-3">
+            <i data-lucide="image" class="w-3.5 h-3.5"></i>
+            Memori PERMATA
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Galeri & Lensa Kenangan</h2>
+          <p class="text-slate-600 dark:text-slate-400 mt-2">Koleksi gambar aktiviti dan pengalaman mahasiswa Terengganu di UniMAP.</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div id="galleryGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Populated by JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT & JOIN FORM SECTION -->
+    <section id="hubungi" class="py-16 md:py-24 bg-slate-900 text-white transition-colors">
+      
+      <!-- Background Accents -->
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute top-0 right-0 w-80 h-80 bg-brand-yellow/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 md:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Contact Info -->
+          <div class="space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-yellow text-slate-900 font-bold text-xs uppercase tracking-wider">
+              <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
+              Pendaftaran & Hubungi
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+              Sertai Ahli PERMATA UniMAP Hari Ini!
+            </h2>
+
+            <p class="text-slate-300 leading-relaxed">
+              Adakah anda pelajar baharu atau sedia ada di UniMAP berhaluan dari Negeri Terengganu? Daftarkan maklumat anda untuk menerima faedah kebajikan, bantuan, dan jemputan aktiviti rasmi.
+            </p>
+
+            <div class="space-y-4 pt-4">
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                <div class="p-3 rounded-lg bg-brand-yellow text-slate-900 font-bold">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-400 uppercase font-semibold">Pusat Operasi</div>
+                  <div class="font-bold text-white text-sm">Pusat Hal Ehwal Pelajar, Kampus Alam UniMAP Pauh Putra, Perlis</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                <div class="p-3 rounded-lg bg-brand-blue text-white font-bold">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-400 uppercase font-semibold">E-mel Rasmi</div>
+                  <div class="font-bold text-white text-sm">permataunimap@gmail.com</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                <div class="p-3 rounded-lg bg-emerald-500 text-white font-bold">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-400 uppercase font-semibold">Talian Pertanyaan</div>
+                  <div class="font-bold text-white text-sm">+60 17-991 3373 (PERHUBUNGAN MAHASISWA)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+<!-- Interactive Registration Form -->
+<div class="bg-slate-800/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-slate-700 shadow-2xl">
+  <h3 class="text-xl font-bold text-white mb-2">Borang Keahlian Mahasiswa</h3>
+  <p class="text-xs text-slate-400 mb-6">Sila isi maklumat asas anda di bawah untuk tindakan Biro Keahlian.</p>
+
+  <form id="joinForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+    <div>
+      <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Nama Penuh</label>
+      <input type="text" id="namaPenuh" required placeholder="Contoh: Ahmad bin Zulkifli" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-yellow text-sm">
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">No. Matrik</label>
+        <input type="text" id="noMatrik" required placeholder="23110123" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-yellow text-sm">
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Daerah Asal</label>
+        <select id="daerahAsal" required class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-white focus:outline-none focus:border-brand-yellow text-sm">
+          <option value="">Pilih Daerah</option>
+          <option value="Kuala Terengganu">Kuala Terengganu</option>
+          <option value="Kuala Nerus">Kuala Nerus</option>
+          <option value="Marang">Marang</option>
+          <option value="Dungun">Dungun</option>
+          <option value="Kemaman">Kemaman</option>
+          <option value="Besut">Besut</option>
+          <option value="Setiu">Setiu</option>
+          <option value="Hulu Terengganu">Hulu Terengganu</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Fakulti / Pusat Pengajian</label>
+      <input type="text" id="fakulti" required placeholder="Contoh: FTKEE UniMAP" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-yellow text-sm">
+    </div>
+
+    <div>
+      <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Nombor Telefon (WhatsApp)</label>
+      <input type="tel" id="noPhone" required placeholder="0123456789" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-yellow text-sm">
+    </div>
+
+    <button type="submit" class="w-full py-3.5 bg-brand-yellow hover:bg-brand-yellowDark text-slate-900 font-extrabold rounded-xl shadow-lg transition-all text-sm uppercase tracking-wider mt-2">
+      Hantar Pendaftaran
+    </button>
+  </form>
+</div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-sm">
+      <div class="container mx-auto px-4 md:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-white overflow-hidden p-0.5 font-black flex items-center justify-center text-sm">
+              <img src="https://i.postimg.cc/L8hF27sH/permata-logo.png" alt="Logo" class="w-full h-full object-contain">
+            </div>
+            <span class="font-extrabold text-white">PERMATA UniMAP</span>
+            <span class="text-xs text-slate-500">© 2026 Hak Cipta Terpelihara.</span>
+          </div>
+
+          <!-- PAUTAN MEDIA SOSIAL (Digantikan dengan FontAwesome Ikon Rasmi Jenama) -->
+          <div class="flex gap-4">
+            <a href="https://www.facebook.com/share/19s22ubQUF/?mibextid=wwXIfr" target="_blank" class="w-9 h-9 rounded-full bg-slate-900 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all" title="Facebook">
+              <i class="fa-brands fa-facebook-f text-base"></i>
+            </a>
+            <a href="https://www.instagram.com/permataunimap" target="_blank" class="w-9 h-9 rounded-full bg-slate-900 hover:bg-pink-600 hover:text-white flex items-center justify-center transition-all" title="Instagram">
+              <i class="fa-brands fa-instagram text-base"></i>
+            </a>
+            <a href="https://www.tiktok.com/@permataunimap" target="_blank" class="w-9 h-9 rounded-full bg-slate-900 hover:bg-black hover:text-white border border-slate-800 flex items-center justify-center transition-all" title="TikTok">
+              <i class="fa-brands fa-tiktok text-base"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- LIVE EDITOR DRAWER / PANEL -->
+    <div id="editorDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[480px] bg-white dark:bg-slate-900 shadow-2xl border-l border-slate-200 dark:border-slate-800 z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+      
+      <!-- Drawer Header -->
+      <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-950">
+        <div class="flex items-center gap-2">
+          <i data-lucide="sliders" class="w-5 h-5 text-brand-blue dark:text-brand-yellow"></i>
+          <h3 class="font-extrabold text-slate-900 dark:text-white text-base">Editor Data Live</h3>
+        </div>
+        <button onclick="toggleEditorDrawer()" class="p-1.5 rounded-lg text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Drawer Tabs -->
+      <div class="flex border-b border-slate-200 dark:border-slate-800 text-xs font-bold overflow-x-auto bg-slate-100 dark:bg-slate-900">
+        <button onclick="switchEditorTab('general')" class="editor-tab-btn flex-1 py-3 px-4 border-b-2 border-brand-blue text-brand-blue dark:text-brand-yellow" data-tab="general">Umum</button>
+        <button onclick="switchEditorTab('leadership')" class="editor-tab-btn flex-1 py-3 px-4 border-b-2 border-transparent text-slate-500" data-tab="leadership">Kepimpinan</button>
+        <button onclick="switchEditorTab('events')" class="editor-tab-btn flex-1 py-3 px-4 border-b-2 border-transparent text-slate-500" data-tab="events">Aktiviti</button>
+      </div>
+
+      <!-- Drawer Content Panes -->
+      <div class="flex-1 overflow-y-auto p-5 space-y-6">
+        
+        <!-- Tab 1: General Info -->
+        <div id="tabPane-general" class="space-y-4">
+          <h4 class="text-xs font-extrabold uppercase text-slate-400 tracking-wider">Teks Hero & Pengumuman</h4>
+          
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Pengumuman Atas</label>
+            <input type="text" id="editBannerText" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Tajuk Hero Utama</label>
+            <textarea id="editHeroTitle" rows="2" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Subtajuk Hero</label>
+            <textarea id="editHeroSubtitle" rows="3" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"></textarea>
+          </div>
+
+          <h4 class="text-xs font-extrabold uppercase text-slate-400 tracking-wider pt-4">Statistik Pantas</h4>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Jumlah Ahli</label>
+              <input type="text" id="editStatMembers" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Program Setahun</label>
+              <input type="text" id="editStatEvents" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Leadership Editor (VISUAL FORM) -->
+        <div id="tabPane-leadership" class="hidden space-y-4">
+          <div class="flex justify-between items-center">
+            <h4 class="text-xs font-extrabold uppercase text-slate-400 tracking-wider">Senarai Nama Kepimpinan (Visual)</h4>
+            <span class="text-[10px] bg-brand-yellow px-2 py-0.5 rounded font-bold text-slate-900">Borang Mudahal</span>
+          </div>
+          <p class="text-xs text-slate-500">Tukar nama dan jawatan pada kotak di bawah. Tekan "Kemaskini Halaman" setelah siap.</p>
+          
+          <div id="leadershipEditorVisual" class="space-y-4">
+            <!-- Borang dijana secara automatik oleh JS -->
+          </div>
+        </div>
+
+        <!-- Tab 3: Events Editor (VISUAL FORM) -->
+        <div id="tabPane-events" class="hidden space-y-4">
+          <h4 class="text-xs font-extrabold uppercase text-slate-400 tracking-wider">Senarai Aktiviti (Visual)</h4>
+          <p class="text-xs text-slate-500">Ubah senarai tajuk aktiviti dan deskripsi secara terus dari borang ini.</p>
+          
+          <div id="eventsEditorVisual" class="space-y-4">
+             <!-- Borang dijana secara automatik oleh JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Drawer Footer Actions -->
+      <div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-between gap-3">
+        <button onclick="resetDefaultData()" class="px-3 py-2 text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 rounded-lg">
+          Pulihkan Asal
+        </button>
+        <button onclick="applyEditorChanges()" class="flex-1 py-2.5 bg-brand-yellow hover:bg-brand-yellowDark text-slate-900 font-extrabold text-xs rounded-xl shadow-md transition-all">
+          Kemaskini Halaman
+        </button>
+      </div>
+
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-2xl bg-slate-900 text-white shadow-2xl border border-slate-700 text-xs font-bold flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none z-50">
+      <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+      <span id="toastMsg">Kemaskini berjaya disimpan!</span>
+    </div>
+
+  </div>
+
+  <!-- APPLICATION LOGIC & DATA -->
+  <script>
+    // 1. INITIAL APP STATE & DATA STRUCTURE
+    const defaultData = {
+      bannerText: "Permohonan Bantuan Anak Pokok Terengganu 2026 Kini Dibuka! Klik pautan pendaftaran di bawah.",
+      heroTitle: "Penyatuan Mahasiswa Terengganu Di Bumi Perlis Indera Kayangan",
+      heroSubtitle: "Wadah ukhuwah, kepimpinan, kebajikan, dan pembangunan modal insan mahasiswa Terengganu di Universiti Malaysia Perlis (UniMAP).",
+      statMembers: "300+",
+      statEvents: "15+",
+
+      // 7-Layer Interactive Leadership Tree Data
+      leadershipLayers: [
+        {
+          layer: 1,
+          title: "Lapisan 1: Naungan & Penasihat Rasmi",
+          badge: "Peringkat Tertinggi",
+          roles: [
+            { name: "YBhg. Prof. Datuk Dr. Naib Canselor", title: "Penaung Agung PERMATA UniMAP", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" },
+            { name: "Dr. Wan Muhamad Bin Wan Zulkifli", title: "Penasihat Akademik & Hal Ehwal Pelajar", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" }
+          ]
+        },
+        {
+          layer: 2,
+          title: "Lapisan 2: Majlis Tertinggi Eksklusif",
+          badge: "Pengurusan Utama",
+          roles: [
+            { name: "Muhammad Amirul Bin Razali", title: "Yang Dipertua (YDP)", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" },
+            { name: "Nur Aisyah Binti Ahmad Shukri", title: "Timbalan Yang Dipertua I (NYDP I)", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" },
+            { name: "Ahmad Danish Bin Khairuddin", title: "Timbalan Yang Dipertua II (NYDP II)", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80" }
+          ]
+        },
+        {
+          layer: 3,
+          title: "Lapisan 3: Sekretariat Pentadbiran & Kewangan",
+          badge: "Teras Pentadbiran",
+          roles: [
+            { name: "Siti Nurhaliza Binti Che Mat", title: "Setiausaha Agung", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80" },
+            { name: "Mohd Hafiz Bin Sulaiman", title: "Timbalan Setiausaha Agung", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80" },
+            { name: "Wan Imran Bin Wan Hassan", title: "Bendahari Agung", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80" }
+          ]
+        },
+        {
+          layer: 4,
+          title: "Lapisan 4: Pengerusi Executive Biro (Exco)",
+          badge: "Ketua Bahagian",
+          roles: [
+            { name: "Biro Kebajikan & Hal Ehwal Ahli", title: "Exco Kebajikan", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80" },
+            { name: "Biro Akademik & Kerjaya", title: "Exco Akademik", avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80" },
+            { name: "Biro Sukan & Rekreasi", title: "Exco Sukan", avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=150&auto=format&fit=crop&q=80" },
+            { name: "Biro Kebudayaan & Warisan", title: "Exco Kebudayaan", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&auto=format&fit=crop&q=80" }
+          ]
+        },
+        {
+          layer: 5,
+          title: "Lapisan 5: Timbalan Biro & Multimedia",
+          badge: "Operasi & Media",
+          roles: [
+            { name: "Muhammad Luqman Bin Zakaria", title: "Exco Publisiti & Pemasaran", avatar: "https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?w=150&auto=format&fit=crop&q=80" },
+            { name: "Nur Farhana Binti Mokhtar", title: "Exco Tugas-tugas Khusus", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80" }
+          ]
+        },
+        {
+          layer: 6,
+          title: "Lapisan 6: Perwakilan Kampus & Kolej Kediaman",
+          badge: "Penyelaras Kampus",
+          roles: [
+            { name: "Wakil Kampus Alam Pauh Putra", title: "Penyelaras Pauh", avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80" },
+            { name: "Wakil Kampus Uniciti Alam", title: "Penyelaras Uniciti", avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=150&auto=format&fit=crop&q=80" },
+            { name: "Wakil Kampus Kangar / Wang Ulu", title: "Penyelaras Kangar", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80" }
+          ]
+        },
+        {
+          layer: 7,
+          title: "Lapisan 7: AJK Pelaksana & Sukarelawan PERMATA",
+          badge: "Akar Umbi",
+          roles: [
+            { name: "Skuad Kebajikan Mahasiswa", title: "50+ Sukarelawan Aktif", avatar: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=150&auto=format&fit=crop&q=80" },
+            { name: "Keahlian Am Anak Terengganu", title: "850+ Mahasiswa UniMAP", avatar: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=150&auto=format&fit=crop&q=80" }
+          ]
+        }
+      ],
+
+      // Events Data
+      events: [
+        {
+          id: 1,
+          title: "Malam Mesra Suai Kenal (MASA) 2026",
+          category: "Kebudayaan",
+          date: "15 Mac 2026",
+          location: "Dewan Tuanku Syed Putra, UniMAP",
+          desc: "Sesi perjumpaan rasmi pelajar baharu bersama pimpinan PERMATA dan jamuan nasi dagang tradisi.",
+          icon: "sparkles"
+        },
+        {
+          id: 2,
+          title: "Kejohanan Sukan Anak Terengganu (KSAT)",
+          category: "Sukan",
+          date: "02 - 04 April 2026",
+          location: "Kompleks Sukan UniMAP Pauh Putra",
+          desc: "Pertandingan bola sepak, bola jaring, dan badminton antara daerah asal mahasiswa Terengganu.",
+          icon: "trophy"
+        },
+        {
+          id: 3,
+          title: "Bengkel Kecemerlangan Peperiksaan Akhir",
+          category: "Akademik",
+          date: "20 Mei 2026",
+          location: "Pusat Pengajian FTKEE UniMAP",
+          desc: "Klinik tutor percuma berasaskan modul subjek teras kejuruteraan & teknologi.",
+          icon: "book-open"
+        },
+        {
+          id: 4,
+          title: "Program Bakti Siswa Desa Terengganu",
+          category: "Kebajikan",
+          date: "12 Jun 2026",
+          location: "Besut, Terengganu",
+          desc: "Misi khidmat masyarakat, tuisyen percuma SPM, dan pembersihan kampung halaman.",
+          icon: "heart"
+        }
+      ],
+
+      // Gallery Data
+      gallery: [
+        { title: "Malam Kebudayaan Terengganu", img: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=500&auto=format&fit=crop&q=80" },
+        { title: "Sukan Antara Biro PERMATA", img: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=500&auto=format&fit=crop&q=80" },
+        { title: "Penyerahan Bantuan Biasiswa", img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&auto=format&fit=crop&q=80" },
+        { title: "Mesyuarat Agung Tahunan (AGM)", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&auto=format&fit=crop&q=80" }
+      ]
+    };
+
+    // State Variables
+    let appData = JSON.parse(JSON.stringify(defaultData));
+    let openLayers = [1, 2]; // Layers open by default
+
+    // 2. RENDER FUNCTIONS
+    function renderApp() {
+      // General Header & Stats
+      document.getElementById('bannerText').textContent = appData.bannerText;
+      document.getElementById('heroTitle').innerHTML = appData.heroTitle;
+      document.getElementById('heroSubtitle').textContent = appData.heroSubtitle;
+      document.getElementById('statMembers').textContent = appData.statMembers;
+      document.getElementById('statEvents').textContent = appData.statEvents;
+
+      // Sync Inputs in Editor Drawer
+      document.getElementById('editBannerText').value = appData.bannerText;
+      document.getElementById('editHeroTitle').value = appData.heroTitle;
+      document.getElementById('editHeroSubtitle').value = appData.heroSubtitle;
+      document.getElementById('editStatMembers').value = appData.statMembers;
+      document.getElementById('editStatEvents').value = appData.statEvents;
+
+      // Render Visual Editor Forms
+      renderVisualEditors();
+
+      // Render Sub-components
+      renderLeadershipTree();
+      renderEvents('all');
+      renderGallery();
+
+      // Refresh Lucide Icons Selamat
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    }
+
+    // Function to generate Visual Editor forms
+    function renderVisualEditors() {
+      // 1. Leadership Visual Editor
+      const leadContainer = document.getElementById('leadershipEditorVisual');
+      leadContainer.innerHTML = '';
+      
+      appData.leadershipLayers.forEach((layer, layerIndex) => {
+        const layerBox = document.createElement('div');
+        layerBox.className = "bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700";
+        let rolesHtml = layer.roles.map((role, roleIndex) => `
+          <div class="mt-2 pl-3 border-l-2 border-slate-200 dark:border-slate-600">
+             <input type="text" id="role-name-${layerIndex}-${roleIndex}" value="${role.name}" placeholder="Nama Ahli" class="w-full px-2 py-1 text-xs rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white mb-1">
+             <input type="text" id="role-title-${layerIndex}-${roleIndex}" value="${role.title}" placeholder="Jawatan" class="w-full px-2 py-1 text-xs rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+          </div>
+        `).join('');
+
+        layerBox.innerHTML = `
+          <div class="font-bold text-xs text-brand-blue dark:text-brand-yellow mb-2">${layer.title}</div>
+          ${rolesHtml}
+        `;
+        leadContainer.appendChild(layerBox);
+      });
+
+      // 2. Events Visual Editor
+      const eventsContainer = document.getElementById('eventsEditorVisual');
+      eventsContainer.innerHTML = '';
+      
+      appData.events.forEach((event, eventIndex) => {
+        const evtBox = document.createElement('div');
+        evtBox.className = "bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700";
+        evtBox.innerHTML = `
+          <input type="text" id="event-title-${eventIndex}" value="${event.title}" placeholder="Tajuk Aktiviti" class="w-full font-bold px-2 py-1 text-xs rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white mb-1">
+          <div class="grid grid-cols-2 gap-1 mb-1">
+            <input type="text" id="event-date-${eventIndex}" value="${event.date}" placeholder="Tarikh" class="w-full px-2 py-1 text-[11px] rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+            <input type="text" id="event-location-${eventIndex}" value="${event.location}" placeholder="Tempat" class="w-full px-2 py-1 text-[11px] rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">
+          </div>
+          <textarea id="event-desc-${eventIndex}" rows="2" placeholder="Deskripsi Ringkas" class="w-full px-2 py-1 text-[11px] rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white">${event.desc}</textarea>
+        `;
+        eventsContainer.appendChild(evtBox);
+      });
+    }
+
+    // Save Data from Visual Editors
+    function extractDataFromVisualEditors() {
+      // Update Leadership Data
+      appData.leadershipLayers.forEach((layer, layerIndex) => {
+        layer.roles.forEach((role, roleIndex) => {
+          const nameInput = document.getElementById(`role-name-${layerIndex}-${roleIndex}`);
+          const titleInput = document.getElementById(`role-title-${layerIndex}-${roleIndex}`);
+          if (nameInput) role.name = nameInput.value;
+          if (titleInput) role.title = titleInput.value;
+        });
+      });
+
+      // Update Events Data
+      appData.events.forEach((event, eventIndex) => {
+        const titleInput = document.getElementById(`event-title-${eventIndex}`);
+        const dateInput = document.getElementById(`event-date-${eventIndex}`);
+        const locInput = document.getElementById(`event-location-${eventIndex}`);
+        const descInput = document.getElementById(`event-desc-${eventIndex}`);
+
+        if (titleInput) event.title = titleInput.value;
+        if (dateInput) event.date = dateInput.value;
+        if (locInput) event.location = locInput.value;
+        if (descInput) event.desc = descInput.value;
+      });
+    }
+
+   // Render 7-Layer Leadership Tree
+function renderLeadershipTree() {
+  const container = document.getElementById('leadershipTreeContainer');
+  
+  // PERLINDUNGAN: Jika elemen tidak dijumpai dalam HTML, henti fungsi (elak crash)
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  appData.leadershipLayers.forEach((layerData) => {
+    const isOpen = openLayers.includes(layerData.layer);
+
+    const layerCard = document.createElement('div');
+    layerCard.className = `border rounded-2xl transition-all duration-300 overflow-hidden ${
+      isOpen 
+        ? 'bg-white dark:bg-slate-900 border-brand-blue/30 dark:border-slate-700 shadow-md' 
+        : 'bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800'
+    }`;
+
+    layerCard.innerHTML = `
+      <!-- Layer Header Bar -->
+      <button onclick="toggleLayer(${layerData.layer})" class="w-full p-5 flex items-center justify-between text-left gap-4 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors">
+        <div class="flex items-center gap-3.5">
+          <div class="w-8 h-8 rounded-full bg-brand-yellow text-slate-900 font-extrabold flex items-center justify-center text-xs shadow-sm">
+            ${layerData.layer}
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-base md:text-lg">${layerData.title}</h3>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-blue dark:text-brand-yellow">${layerData.badge}</span>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-slate-400 font-medium hidden sm:inline">${isOpen ? 'Sembunyi' : 'Lihat Perincian'}</span>
+          <div class="p-1.5 rounded-lg bg-slate-200/60 dark:bg-slate-700 text-slate-700 dark:text-slate-200">
+            <i data-lucide="${isOpen ? 'chevron-up' : 'chevron-down'}" class="w-4 h-4"></i>
+          </div>
+        </div>
+      </button>
+
+      <!-- Layer Expanded Content -->
+      ${
+        isOpen ? `
+          <div class="px-5 pb-6 pt-2 border-t border-slate-100 dark:border-slate-800/80">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-2">
+              ${layerData.roles.map(role => `
+                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 flex items-center gap-3.5 hover:border-brand-yellow transition-all">
+                  <img src="${role.avatar}" alt="${role.name}" class="w-11 h-11 rounded-full object-cover border border-brand-yellow">
+                  <div class="min-w-0 flex-1">
+                    <div class="font-bold text-xs text-slate-900 dark:text-white truncate">${role.name}</div>
+                    <div class="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">${role.title}</div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''
+      }
+    `;
+
+    container.appendChild(layerCard);
+  });
+
+  if (window.lucide && typeof window.lucide.createIcons === 'function') {
+    window.lucide.createIcons();
+  }
+}
+
+    // Render Events Grid
+    function renderEvents(filterCategory = 'all') {
+      const container = document.getElementById('eventsGrid');
+      container.innerHTML = '';
+
+      const filtered = filterCategory === 'all' 
+        ? appData.events 
+        : appData.events.filter(e => e.category === filterCategory);
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 text-sm">Tiada aktiviti ditemui bagi kategori ini.</div>`;
+        return;
+      }
+
+      filtered.forEach(event => {
+        const card = document.createElement('div');
+        card.className = "bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-brand-blue/10 dark:bg-brand-blue/30 text-brand-blue dark:text-brand-yellow">
+                ${event.category}
+              </span>
+              <span class="text-xs font-semibold text-slate-400 flex items-center gap-1">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                ${event.date}
+              </span>
+            </div>
+
+            <h3 class="font-extrabold text-slate-900 dark:text-white text-lg mb-2">${event.title}</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">${event.desc}</p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
+            <span class="flex items-center gap-1 truncate">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-red"></i>
+              ${event.location}
+            </span>
+            <a href="#contact" class="font-bold text-brand-blue dark:text-brand-yellow hover:underline flex items-center gap-0.5">
+              Sertai
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    }
+
+    // Render Gallery Grid
+    function renderGallery() {
+      const container = document.getElementById('galleryGrid');
+      container.innerHTML = '';
+
+      appData.gallery.forEach(item => {
+        const card = document.createElement('div');
+        card.className = "group relative rounded-2xl overflow-hidden shadow-sm aspect-video sm:aspect-square bg-slate-100 dark:bg-slate-800";
+        card.innerHTML = `
+          <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+            <span class="font-bold text-white text-xs sm:text-sm drop-shadow-md">${item.title}</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // 3. INTERACTIVE CONTROLS & HANDLERS
+    function toggleLayer(layerNum) {
+      if (openLayers.includes(layerNum)) {
+        openLayers = openLayers.filter(l => l !== layerNum);
+      } else {
+        openLayers.push(layerNum);
+      }
+      renderLeadershipTree();
+    }
+
+    function expandAllLayers() {
+      openLayers = appData.leadershipLayers.map(l => l.layer);
+      renderLeadershipTree();
+    }
+
+    function collapseAllLayers() {
+      openLayers = [];
+      renderLeadershipTree();
+    }
+
+    function filterEvents(category) {
+      document.querySelectorAll('.event-filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.className = "event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-brand-blue text-white shadow-md";
+        } else {
+          btn.className = "event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700";
+        }
+      });
+      renderEvents(category);
+    }
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    // Top Banner Close
+    function closeBanner() {
+      document.getElementById('topBanner').style.display = 'none';
+    }
+
+    // Editor Drawer Toggle
+    function toggleEditorDrawer() {
+      const drawer = document.getElementById('editorDrawer');
+      drawer.classList.toggle('translate-x-full');
+    }
+
+    // Editor Drawer Tab Switcher
+    function switchEditorTab(tabName) {
+      document.querySelectorAll('.editor-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabName) {
+          btn.className = "editor-tab-btn flex-1 py-3 px-4 border-b-2 border-brand-blue text-brand-blue dark:text-brand-yellow font-bold";
+        } else {
+          btn.className = "editor-tab-btn flex-1 py-3 px-4 border-b-2 border-transparent text-slate-500 font-bold";
+        }
+      });
+
+      document.getElementById('tabPane-general').classList.add('hidden');
+      document.getElementById('tabPane-leadership').classList.add('hidden');
+      document.getElementById('tabPane-events').classList.add('hidden');
+
+      document.getElementById(`tabPane-${tabName}`).classList.remove('hidden');
+    }
+
+    // Apply Live Changes from Editor Drawer
+    function applyEditorChanges() {
+      try {
+        appData.bannerText = document.getElementById('editBannerText').value;
+        appData.heroTitle = document.getElementById('editHeroTitle').value;
+        appData.heroSubtitle = document.getElementById('editHeroSubtitle').value;
+        appData.statMembers = document.getElementById('editStatMembers').value;
+        appData.statEvents = document.getElementById('editStatEvents').value;
+
+        // Tarik data daripada visual forms
+        extractDataFromVisualEditors();
+
+        renderApp();
+        showToast("Perubahan data berjaya dikemaskini!");
+        toggleEditorDrawer();
+
+      } catch (err) {
+        showToast("Ralat! Sila cuba lagi.", true);
+      }
+    }
+
+    function resetDefaultData() {
+      appData = JSON.parse(JSON.stringify(defaultData));
+      renderApp();
+      showToast("Data dipulihkan ke tetapan asal!");
+    }
+
+    function showToast(msg, isError = false) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+
+      if (isError) {
+        toast.className = toast.className.replace('bg-slate-900', 'bg-rose-900');
+      } else {
+        toast.className = toast.className.replace('bg-rose-900', 'bg-slate-900');
+      }
+
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 3000);
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      showToast("Pendaftaran anda telah diterima! Setiausaha akan menghubungi anda.");
+      e.target.reset();
+    }
+
+    // 4. INIT ON WINDOW LOAD
+    window.onload = function() {
+      renderApp();
+    };
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laman Web PERMATA UniMAP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo-permata {
+            width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laman Web PERMATA UniMAP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo-permata {
+            width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<head>
+    <style>
+        /* Kod-kod CSS anda yang lain mungkin ada di sini */
+        
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* GANTIKAN BAHAGIAN INI */
+        .logo-permata {
+            width: 200px; 
+            height: auto;
+            margin-bottom: 15px;
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+
+        /* ... kod seterusnya ... */
+    </style>
+</head>
+<body>
+
+    <!-- BAHAGIAN HEADER -->
+    <header class="header">
+        <!-- Logo diletakkan di sini -->
+        <img src="https://i.postimg.cc/L8hF27sH/permata-logo.png" alt="Logo PERMATA" class="w-40 h-40 object-contain mx-auto mb-4">
+        
+        <h1>Persatuan Mahasiswa Anak Terengganu (PERMATA) UniMAP</h1>
+    </header>
+    
+    <!-- BAHAGIAN KANDUNGAN UTAMA -->
+    <main class="content">
+        <h2>Selamat Datang ke Laman Web Rasmi</h2>
+        <p>Laman ini adalah platform rasmi untuk semua mahasiswa anak Terengganu di Universiti Malaysia Perlis.</p>
+    </main>
+
+</body>
+<!-- ================= SKRIP LENGKAP POHON KEPIMPIMAN SESI ================= -->
+<script>
+  // 1. DATA SENARAI NAMA MENGIKUT SESI
+  const leadershipDataBySession = {
+    "23/24": [
+      {
+        layer: 1,
+        title: "Ayah Angkat PERMATA Unimap",
+        badge: "PERINGKAT TERTINGGI",
+        roles: [
+          { name: "YB SR HJ. Zaharudin Bin Zahid", title: "ADUN Bukit Tunggal", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 2,
+        title: "Penasihat Rasmi PERMATA Unimap",
+        badge: "PERINGKAT TERTINGGI",
+        roles: [
+          { name: "Encik Muhammad Salihin Bin Zakaria", title: "Penasihat PERMATA Unimap", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 3,
+        title: "Majlis Tertinggi",
+        badge: "PENGURUSAN UTAMA",
+        roles: [
+          { name: "Muhammad Nazman Bin Yaakob", title: "Yang Dipertua (YDP)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Afiq Haiqal Bin Mohd Yusof", title: "Timbalan Yang Dipertua I (TYDP I)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Irfan Firdaus Bin Nordin", title: "Timbalan Yang Dipertua II (TYDP II)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Adib Bin Zaini", title: "Naib Yang Dipertua (NYDP)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nurul Hanisah Binti Abdullah", title: "Setuausaha Agung", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Siti Maisarah Binti Rosmadi", title: "Setiausaha Kerja", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Sabqi Bin Anang", title: "Bendahari", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 4,
+        title: "Exco Akademik",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Noraliza Binti Mohd Hazli", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Artierah Binti Usop", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Fatin Alia Natasha Binti Mohd Zamri", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 5,
+        title: "Exco Aktiviti Dan Sukan",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Muhammad Isma Harith Bin Mohd Shallehen", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Amirul Muhaimin Bin Safurudin", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Ainaa Nadiah Binti Mohd Fauzi", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Aina Syafiqah Binti Muhammad", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Radwana Binti amran", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Shahirah Binti Zainal", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 6,
+        title: "Exco Kebajikan Dan Keusahawanan",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Ahmad Aiman Bin Mohd Aziz", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Nur Luqman Bin Shaharun", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Siti Khadijah Binti Jafri", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Fakhira Farhah Binti Mohd Azmi", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 7,
+        title: "Exco Logistik Dan Teknikal",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Alif Mustaqim Bin Mohd Soufi", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad haiman Bin Hashim", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nurul Fathonah Inani Binti Fauzi", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nurul Nabihah Binti Ruslan", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 8,
+        title: "Exco Multimedia",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Ahmad Hazim Irfan Bin Fazilah Suhaimi", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nurul Amirah Haziqah Binti Sahamin", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Faris Haikal Bin Mohd Rosli", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nurul Ateeqah Binti Ishak @ Zakaria", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 9,
+        title: "Exco Protokol",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Muhammad Afiq Danial Bin Afarifin", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Syahril Aizad Bin Hussin", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Elia Farhara Binti Abdul Rahim", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 10,
+        title: "Exco Publisiti Dan Perhubungan Luar",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Muhammad Irfan Syafiqi Bin Mohd Zaen", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Umie Suraya Binti Zainal", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Aina Syafiqah Binti Pauji", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Na'ilah Najdah Binti Mohd Rosdi", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 11,
+        title: "Exco",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Mohamad Ashraf Hakimi Bin Shahadan", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Aiman Hakimi Bin Mohd Anuar", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Sharifah Anis Safiah Binti Syed Khalea Kosam", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      }
+    ],
+
+    "24/25": [
+      {
+        layer: 1,
+        title: "Ayah Angkat PERMATA Unimap",
+        badge: "PERINGKAT TERTINGGI",
+        roles: [
+          { name: "YB SR HJ. Zaharudin Bin Zahid", title: "ADUN Bukit Tunggal", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 2,
+        title: "Penasihat Rasmi PERMATA Unimap",
+        badge: "PERINGKAT TERTINGGI",
+        roles: [
+          { name: "Encik Muhammad Salihin Bin Zakaria", title: "Penasihat PERMATA Unimap", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 3,
+        title: "Majlis Tertinggi",
+        badge: "PENGURUSAN UTAMA",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Yang Dipertua (YDP)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Timbalan Yang Dipertua I (TYDP I)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Timbalan Yang Dipertua II (TYDP II)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Naib Yang Di-pertua 1 (Diploma)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Naib Yang Dipertua 2 (Diploma)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Setiausaha Agung", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Setiausaha Kerja", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Bendahari", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Penolong Bendahari", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Perhubungan Luar", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 4,
+        title: "Exco Akademik Dan Sahsiah",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 5,
+        title: "Exco Protokol ",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 6,
+        title: "Exco Kebajikan Dan Keusahawanan",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 7,
+        title: "Exco Logistik Dan Teknikal",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 8,
+        title: "Exco Multimedia",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 9,
+        title: "Exco Publisiti Dan Hebahan",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 10,
+        title: "Exco Sukan dan Aktiviti",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 11,
+        title: "Exco Tugas Khas",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      }
+    ],
+
+    "25/26": [
+      {
+        layer: 1,
+        title: "Ayah Angkat PERMATA Unimap",
+        badge: "PERINGKAT TERTINGGI",
+        roles: [
+          { name: "YB SR HJ. Zaharudin Bin Zahid", title: "ADUN Bukit Tunggal", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 2,
+        title: "Penasihat Rasmi PERMATA Unimap",
+        badge: "PERINGKAT TERTINGGI",
+        roles: [
+          { name: "Encik Muhammad Salihin Bin Zakaria", title: "Penasihat PERMATA Unimap", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 3,
+        title: "Majlis Tertinggi",
+        badge: "PENGURUSAN UTAMA",
+        roles: [
+          { name: "Muhammad Amirul Muhaimin Bin Safarudin", title: "Yang Dipertua (YDP)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Aina Syafiqah Binti Muhamad", title: "Timbalan Yang Dipertua I (TYDP I)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Syahril Aizad Bin Hussin", title: "Timbalan Yang Dipertua II (TYDP II)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Wan Nur Azyan Binti Wan Nazman", title: "Setiausaha Agung", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Alia Shahyra Binti Abdullah", title: "Setiausaha Kerja", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Siti Elyana Sephia Binti Sikh Kamarulzaman", title: "Bendahari Kehormat", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Shahirah Binti Zainal", title: "Timbalan Bendahari", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Fakhira Farhah Binti Mohd Azmi", title: "Perhubungan Degree Mahasiswa", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Alif Muhaimin Bin Mohd Tarmizi", title: "Perhubungan Diploma Mahasiswa", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 4,
+        title: "Exco Akademik Dan Kerjaya",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Muhammad Faris Haikal Bin Mohd Rosli", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muruljannah Binti Chek Musa", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nor Adawiyah Binti Mohd Amin", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Siti Aisyah Binti Kamarudin", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Siti Haszwani Binti Shaikh Anuar", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 5,
+        title: "Exco Kebajikan Dan Kerohanian",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Noor Aina Asyikin Binti Amran", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Mohamad Hairul Azim Bin Zulkefli", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Najibah Kamilah Binti Zulkifli", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Ahmad Syarifuddin Bin Mohd liah", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 6,
+        title: "Exco Logistik Dan Teknikal",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Nurul Nabihah Binti Ruslan", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Puteri Nur Aina Zahirah Binti Alwi", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Tengku Ain Naimmuddin Bin Tengku Noor Azehar", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Noor Masyitah Binti Ibrahim", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Danish Irfan Bin Arzmi", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 7,
+        title: "Exco Multimedia Dan Publisiti",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Siti Maryam Binti Sheikh Mohd sofian", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Rabiatul Adawiyah Binti Roslan", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Halimatul Saadiah Binti MOkhtar", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Azfar Fayyadh Bin Zawawi", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nureen Mawaddah Binti Yusri", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 8,
+        title: "Exco Protokol Dan Tugas Khas",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Ahmad Hazim Irfan Bin Fazilah Suhaimi", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Aleya Natasha Binti Azizyul", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Putri Nor Alya Syafiqah Binti Saharudin", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nureel Balqis Binti Mohd Firdaus Michael Malang", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Elida Syazlin Binti Romli", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 9,
+        title: "Exco Sukan Dan Aktiviti",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "Nurulfazni Binti Musa", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Adam Harits Bin Saharudin", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Aqil Harith Bin Mohd Anuar", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Ammar Faiz Bin Mohd Hafiz", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      }
+    ],
+
+    "26/27": [
+      {
+        layer: 1,
+        title: "Ayah Angkat PERMATA Unimap",
+        badge: "PERINGKAT TERTINGGI",
+        roles: [
+          { name: "YB SR HJ. Zaharudin Bin Zahid", title: "ADUN Bukit Tunggal", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 2,
+        title: "Penasihat Rasmi PERMATA Unimap",
+        badge: "PERINGKAT TERTINGGI",
+        roles: [
+          { name: "Encik Muhammad Salihin Bin Zakaria", title: "Penasihat PERMATA Unimap", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 3,
+        title: "Majlis Tertinggi",
+        badge: "PENGURUSAN UTAMA",
+        roles: [
+          { name: "Wan Nur Azyan Binti Wan Nazman", title: "Yang Dipertua (YDP)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Adam Harits bin saharudin", title: "Timbalan Yang Dipertua I (TYDP I)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Aqil Harith Bin Mohd Anuar", title: "Timbalan Yang Dipertua II (TYDP II)", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Nur Alia Shahyra Binti Abdullah", title: "Setiausaha Agung", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Siti Aisyah Binti Kamarudin", title: "Setiausaha Kerja", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Noor Aina Asyikin Binti Amran", title: "Bendahari Kehormat", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Ahmad Hazim Irfan Bin Fazilah Suhaimi", title: "Timbalan Bendahari", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Tengku Ain Naimmuddin Bin Tengku Noor Azehar", title: "Perhubungan Degree Mahasiswa", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "Muhammad Alif Muhaimin Bin Mohd Tarmizi", title: "Perhubungan Diploma Mahasiswa", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 4,
+        title: "Exco Protokol Dan Penyelarasan Khas",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 5,
+        title: "Exco Keusahawanan Dan Penjanaan Dana",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 6,
+        title: "Exco Sukan Dan Rekreasi",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 7,
+        title: "Exco Akademik Dan Kerjaya",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 8,
+        title: "Exco Logistik Dan Teknikal",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 9,
+        title: "Exco MultiMedia Dan Dokumentasi",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      },
+      {
+        layer: 10,
+        title: "Exco Kebajikan Dan Pembangunan Sahsiah",
+        badge: "BARISAN EXCO",
+        roles: [
+          { name: "AKAN DIKEMASKINI", title: "Ketua Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" },
+          { name: "AKAN DIKEMASKINI", title: "Exco", avatar: "https://i.postimg.cc/L8hF27sH/permata-logo.png" }
+        ]
+      }
+    ]
+  };
+
+  // 2. FUNGSI RENDER POHON KEPIMPIMAN
+  function renderLeadershipTree(layersData) {
+    const container = document.getElementById('leadership-layers-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    if (!layersData || layersData.length === 0) {
+      container.innerHTML = `
+        <div class="text-center py-12 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700">
+          <p class="text-slate-500 dark:text-slate-400 font-bold text-sm">Maklumat kepimpinan bagi sesi ini sedang dikemaskini.</p>
+        </div>`;
+      return;
+    }
+
+    layersData.forEach((layerItem, index) => {
+      const layerCard = document.createElement('div');
+      layerCard.className = 'bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-700/80 transition-all shadow-sm';
+
+      const rolesHTML = layerItem.roles.map(role => `
+        <div class="flex items-center gap-3 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-all">
+          <img src="${role.avatar || 'https://i.postimg.cc/L8hF27sH/permata-logo.png'}" 
+               alt="${role.name}" 
+               class="w-11 h-11 rounded-full object-cover border-2 border-amber-400/80 flex-shrink-0">
+          <div class="overflow-hidden">
+            <h4 class="font-extrabold text-slate-900 dark:text-white text-sm truncate" title="${role.name}">${role.name}</h4>
+            <p class="text-xs text-brand-blue dark:text-amber-400 font-semibold truncate" title="${role.title}">${role.title}</p>
+          </div>
+        </div>
+      `).join('');
+
+      layerCard.innerHTML = `
+        <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-200 dark:border-slate-700">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-lg bg-amber-400 text-slate-900 font-black flex items-center justify-center text-xs shadow-sm">${layerItem.layer || (index + 1)}</span>
+            <div>
+              <h3 class="font-extrabold text-slate-900 dark:text-white text-base leading-tight">${layerItem.title}</h3>
+              <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">${layerItem.badge || ''}</span>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          ${rolesHTML}
+        </div>
+      `;
+
+      container.appendChild(layerCard);
+    });
+  }
+
+  // 3. FUNGSI PENUKARAN SESI
+  window.switchSession = function(sessionKey) {
+    const subTitle = document.getElementById('sessionSubTitle');
+    if (subTitle) {
+      subTitle.innerText = `Carta Hirarki Pengurusan Persatuan Mahasiswa Terengganu UniMAP Sesi ${sessionKey}.`;
+    }
+
+    document.querySelectorAll('.session-btn').forEach(btn => {
+      btn.className = "session-btn px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200";
+    });
+
+    const rawId = `btn-${sessionKey.replace('/', '')}`;
+    const activeBtn = document.getElementById(rawId);
+    if (activeBtn) {
+      activeBtn.className = "session-btn px-4 py-2 text-xs font-bold rounded-xl transition-all bg-brand-blue text-white shadow-md";
+    }
+
+    const dataForSession = leadershipDataBySession[sessionKey] || [];
+    renderLeadershipTree(dataForSession);
+  };
+
+  // 4. JALANKAN SERTA-MERTA SESI 25/26
+  window.switchSession('25/26');
+
+  // 5. PAUTAN SMOOTH SCROLLING
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href').replace('#', '');
+        if (!targetId) return;
+
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script>
+<script>
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  // 1. Ambil data dari borang
+  const nama = document.getElementById('namaPenuh')?.value || '';
+  const matrik = document.getElementById('noMatrik')?.value || '';
+  const daerah = document.getElementById('daerahAsal')?.value || '';
+  const fakulti = document.getElementById('fakulti')?.value || '';
+  const phone = document.getElementById('noPhone')?.value || '';
+
+  // 2. TUKAR NOMBOR INI KEPADA NOMBOR WHATSAPP PENERIMA (AJK / SETIAUSAHA)
+  const nomborPenerima = "60179913373"; 
+
+  // 3. Susun teks mesej kemas
+  const mesej = `*PENDAFTARAN AHLI BAHARU PERMATA UNIMAP*%0A%0A` +
+                `*Nama Penuh:* ${nama}%0A` +
+                `*No. Matrik:* ${matrik}%0A` +
+                `*Daerah Asal:* ${daerah}%0A` +
+                `*Fakulti:* ${fakulti}%0A` +
+                `*No. Tel:* ${phone}`;
+
+  // 4. Buka WhatsApp terus dengan data yang diisi
+  window.open(`https://wa.me/${60179913373}?text=${mesej}`, '_blank');
+}
+// DATA AKTIVITI & EVENT
+let eventsData = [  
+  {
+    title: "PROGRAM PERMATA UNITY & LEADERSHIP RETREAT PERMATA UNIMAP",
+    category: "25/26",
+    date: "3-5 Dec 2025",
+    location: "Ulu Garden House & Event Sdn Bhd, Kuala Berang,Terengganu",
+    img: "https://i.postimg.cc/mgcXkGWy/bonding.jpg",
+    desc: "Program untuk memperkukuhkan silaturahim antara satu sama lain dan sesi perkenalan yang lebih akrab"
+  },
+  {
+    title: "SMASH TIME!",
+    category: "25/26",
+    date: "10 Jan 2026",
+    location: "ALL IN SPORT, Jejawi, Kangar",
+    img: "https://i.postimg.cc/SN9DCbKK/badminton.jpg",
+    desc: "Pertandingan badminton untuk mengeratkan silaturahim bersama mahasiswa unimap"
+  },
+  {
+    title: "FROM ZERO TO HERO",
+    category: "25/26",
+    date: "24 Jan 2026",
+    location: "Dewan Kuliah Pauh Putra, DK6",
+    img: "https://i.postimg.cc/pLZQJWb6/zerotohero.jpg",
+    desc: "Sesi perkongsian teknik belajar dan membentuk diri untuk lebih cekal menghadapi masalah"
+  },
+  {
+    title: "SELEMBAR KASIH RAMADHAN",
+    category: "25/26",
+    date: "2 mar 2026",
+    location: "Kampung Pak Katak, Kuala Terengganu",
+    img: "https://i.postimg.cc/x8z8qCgS/bukepose.jpg",
+    desc: "sumbangan kebajikan untuk masyarakat sempenan bulan ramadhan"
+  },
+  {
+    title: "KILAUAN SYAWAL PERMATA UNIMAP",
+    category: "25/26",
+    date: "18 Feb 2027",
+    location: "Lembah Saerah Resort, Kangar",
+    img: "https://i.postimg.cc/yNLkb2k4/raya.jpg",
+    desc: "Menyambut perayaan hari raya aidilfitri bersama mahasiswa terengganu"
+  },
+  {
+    title: "PROGRAM KELESTARIAN ALAM & TANGGUNGJAWAB SOSIAL",
+    category: "25/26",
+    date: "29 May 2026",
+    location: "Pantai Tok Kita, Chendering, Kuala Terengganu",
+    img: "https://i.postimg.cc/qMK6vmZt/bersih-pata.jpg",
+    desc: "Memastikan sumber dan persekitaran alam dapat dinikmati oleh generasi akan datang."
+  },
+  {
+    title: "WARISANKU EXPLORACE",
+    category: "25/26",
+    date: "14 Jun 2026",
+    location: "Kampus UniCITI Alam",
+    img: "https://i.postimg.cc/2ysqxv3p/explorace.jpg",
+    desc: "Program ini menggabungkan elemen keseronokan, kerja berpasukan, kecergasan fizikal, serta memupuk semangat cinta akan tanah air dan menghargai khazanah tradisi."
+  },
+    {
+    title: "UNITY ARTS FESTIVAL",
+    category: "25/26",
+    date: "19-21 Jun 2026",
+    location: "Dewan Ilmu, UNIMAP Pauh",
+    img: "https://i.postimg.cc/tTgVRp8S/UAF.jpg",
+    desc: "acara kemasyarakatan dan kebudayaan yang menggabungkan pelbagai bentuk ekspresi seni seperti seni visual, muzik, tarian, teater, dan kraf."
+  },
+    {
+    title: "STEM-VET CATALYST",
+    category: "25/26",
+    date: "29 May 2026",
+    location: "Terengganu",
+    img: "https://i.postimg.cc/7Zv71vTg/stem-vet.jpg",
+    desc: "Program STEM-VET Catalyst UniMAP melibatkan pembelajaran interaktif dan promosi UniMAP di SMK Kompleks Rantau Abang dan SMK Jerangau, lawatan ilmu dan komuniti di Rantau Abang Turtle Conservation and Information Center, penerokaan tapak bersejarah Bukit Besi, lawatan ke kincir angin UMT di Pantai Tok Jembal serta kunjungan ke Pasar Payang sebelum pulang ke UniMAP."
+  },
+    {
+    title: "PROGRAM SUKAN PERMATA KEBANGSAAN (SUPER-K) 3.0",
+    category: "25/26",
+    date: "29 May 2026",
+    location: "Kompleks Sukan Negeri Terengganu",
+    img: "https://i.postimg.cc/PJ9DF939/SUPER-K.jpg",
+    desc: "sebuah kejohanan sukan tahunan (Supertip / Sukan Terengganu) yang menghimpunkan ratusan mahasiswa anak Terengganu dari pelbagai IPT untuk bersaing dalam pelbagai acara sukan, mengasah bakat, serta memupuk semangat kesukanan dan perpaduan."
+  },
+    {
+    title: "BAKTI SISWA PENYU (BASIP) 2.0",
+    category: "25/26",
+    date: "17-18 sep 2026",
+    location: "Kampung Pak Katak, Kuala Terengganu",
+    img: "https://i.postimg.cc/ZRJxrG23/basip-2-0.jpg",
+    desc: "aktiviti kesukarelawanan yang dianjurkan oleh penuntut institusi pengajian tinggi (IPT) untuk berbakti dan berinteraksi secara langsung dengan komuniti setempat."
+  },
+    {
+    title: "PERMATA ALUMNI TRIBUTE NIGHT & ANNUAL GENERAL MEETING",
+    category: "25/26",
+    date: "18 Oct 2026",
+    location: "The Kitchen Studio Event Space, Kangar",
+    img: "https://i.postimg.cc/yd5y3L4V/AGM.jpg",
+    desc: "Acara ini menggabungkan urusan rasmi pentadbiran persatuan dengan majlis makan malam penghargaan bagi merapatkan ukhuwah serta mengenang jasa alumni dan ahli jawatankuasa."
+  },
+    {
+    title: "Bonding AJK PERMATA",
+    category: "23/24",
+    date: "24 Dec 2023",
+    location: "Tasik Timah Tasoh",
+    img: "https://i.postimg.cc/RZr8ZQQn/Whats-App-Image-2026-10-24-at-7-08-06-PM.jpg",
+    desc: "Program yang bertujuan mengeratkan hubungan silaturahim antara barisan Ahli Jawatankuasa PERMATA sesi 2023/2024 serta memupuk semangat kerjasama dan kesepaduan dalam organisasi."
+  },
+    {
+    title: "Smash Turtle",
+    category: "23/24",
+    date: "31 Dec 2023",
+    location: "ALL IN SPORT, Jejawi",
+    img: "https://i.postimg.cc/8C4nw88y/Whats-App-Image-2026-10-24-at-7-08-06-PM-(1).jpg",
+    desc: "Program sukan badminton yang bertujuan menggalakkan gaya hidup sihat, mengeratkan hubungan sesama ahli serta memupuk semangat kesukanan dalam kalangan peserta."
+  },  
+    {
+    title: "Kursus Pengurusan Organisasi Peringkat PERMATA Unimap",
+    category: "23/24",
+    date: "14 Jan 2024",
+    location: "Dewan Kuliah 5, Kompleks Dewan Kuliah, Unimap",
+    img: "https://i.postimg.cc/vmGGcdLx/Whats-App-Image-2026-10-24-at-7-08-04-PM-(1).jpg",
+    desc: "Program berbentuk kursus dan perkongsian ilmu bagi meningkatkan pengetahuan serta kemahiran ahli jawatankuasa dalam aspek pengurusan organisasi, kepimpinan dan pelaksanaan program."
+  },
+    {
+    title: "Mountain Mastery (PERMATA X DRACC Unimap)",
+    category: "23/24",
+    date: "26 Jan 2023",
+    location: "Gunung Keriang, Alor Setar",
+    img: "https://i.postimg.cc/hj3ZW9td/Whats-App-Image-2026-10-24-at-7-08-06-PM-(2).jpg",
+    desc: "Program pendakian yang menggalakkan aktiviti rekreasi luar, membina ketahanan fizikal dan mental serta memupuk semangat kerjasama dan cintakan alam semula jadi."
+  },
+    {
+    title: "BBQ Bonanza",
+    category: "23/24",
+    date: "9 Mac 2024",
+    location: "Pantai Seberang Takir",
+    img: "https://i.postimg.cc/MTdHWpCB/Whats-App-Image-2026-10-24-at-7-08-05-PM-(1).jpg",
+    desc: "Program santai yang menghimpunkan ahli PERMATA dalam suasana mesra melalui aktiviti barbeku bagi mengeratkan ukhuwah dan mengukuhkan hubungan sesama ahli."
+  },
+    {
+    title: "Hari Kecemerlangan & Bantuan Kewangan Anak Terengganu",
+    category: "23/24",
+    date: "21 April 2024",
+    location: "Dewan Kuliah 4, Kompleks Kuliah Unimap",
+    img: "https://i.postimg.cc/J7SmjX5X/Whats-App-Image-2026-10-24-at-7-08-08-PM.jpg",
+    desc: "Program penghargaan terhadap kecemerlangan akademik serta penyampaian bantuan kewangan kepada anak Terengganu bagi menyokong kebajikan dan perkembangan pendidikan pelajar."
+  },
+    {
+    title: "Wang Gunung Peak Attack (ROCK X PERMATA Unimap)",
+    category: "23/24",
+    date: "9 Jun 2024",
+    location: "Wang Gunung, Perlis",
+    img: "https://i.postimg.cc/4dzvwVhn/Whats-App-Image-2026-10-24-at-7-08-04-PM.jpg",
+    desc: "Program pendakian hasil kerjasama ROCK dan PERMATA UniMAP yang bertujuan memupuk semangat kesukanan, meningkatkan ketahanan diri serta mengeratkan hubungan antara peserta."
+  },
+    {
+    title: "Beach Clean Up (PERMATA Unimap X Geng Plastik Ija GPI)",
+    category: "23/24",
+    date: "10 Ogos 2024",
+    location: "Pantai Jambu Bongkok, Marang",
+    img: "https://i.postimg.cc/tJq65fjJ/Whats-App-Image-2026-10-24-at-7-08-05-PM.jpg",
+    desc: "Program khidmat masyarakat yang memfokuskan aktiviti pembersihan pantai bagi meningkatkan kesedaran tentang penjagaan alam sekitar dan kepentingan mengurangkan pencemaran plastik."
+  },
+    {
+    title: "Baktisiswa Penyu",
+    category: "23/24",
+    date: "19-21 Sep 2024",
+    location: "Kampung Duyong, Dun Bukit Tunggal",
+    img: "https://i.postimg.cc/ncwm40w0/Whats-App-Image-2026-10-24-at-7-08-07-PM.jpg",
+    desc: "Program bakti siswa yang bertujuan menjalinkan hubungan antara mahasiswa dengan komuniti setempat melalui aktiviti kemasyarakatan, kebajikan dan kesukarelawanan."
+  },
+    {
+    title: "AGM PERMATA Unimap",
+    category: "23/24",
+    date: "26 Oct 2024",
+    location: "Online & DK5",
+    img: "https://i.postimg.cc/02m6SPDg/Whats-App-Image-2026-10-24-at-7-08-05-PM-(2).jpg",
+    desc: "Mesyuarat Agung Tahunan PERMATA UniMAP yang menjadi platform pembentangan laporan aktiviti, penilaian pencapaian organisasi serta perbincangan hala tuju persatuan."
+  },
+    {
+    title: "Permata Prihatin YPM",
+    category: "23/24",
+    date: "Sepanjang Sesi 23/24",
+    location: "Terengganu/Perlis",
+    img: "https://i.postimg.cc/XYCrw35j/Whats-App-Image-2026-10-24-at-7-08-06-PM-(3).jpg",
+    desc: "Inisiatif kebajikan di bawah PERMATA UniMAP dengan sokongan YPM yang menyediakan bantuan kecemasan kepada ahli yang berhadapan dengan situasi seperti kemalangan, kematian dan bencana sepanjang sesi 2023/2024."
+  },
+    {
+    title: "Permata Happiness (Bas dan Makanan iftar)",
+    category: "23/24",
+    date: "Sepanjang Sesi 23/24",
+    location: "Terengganu/Perlis",
+    img: "https://i.postimg.cc/kMTRCT9r/Whats-App-Image-2026-10-24-at-7-08-07-PM-(1).jpg",
+    desc: "Inisiatif kebajikan yang menyediakan kemudahan pengangkutan bas dan makanan berbuka puasa kepada ahli, termasuk melalui kerjasama dengan Anak Terengganu IPG Perlis, bagi meringankan beban serta menjaga kebajikan mahasiswa."
+  },
+];
+
+// DATA GALERI
+let galleryData = [
+  { title: "PERMATA UNIMAP SESI 23/24", img: "https://i.postimg.cc/02m6SPDg/Whats-App-Image-2026-10-24-at-7-08-05-PM-(2).jpg" },
+  { title: "PERMATA UNIMAP SESI 24/25", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500" },
+  { title: "PERMATA UNIMAP SESI 25/26", img: "https://i.postimg.cc/SsfJ2sCC/Whats-App-Image-2026-10-24-at-5-31-10-PM.jpg" },
+  { title: "PERMATA UNIMAP SESI 26/27", img: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500" }
+];
+
+// FUNGSI MEMAPARKAN AKTIVITI
+function renderEvents(filter = 'all') {
+  const grid = document.getElementById('eventsGrid');
+  if (!grid) return;
+
+  const filtered = filter === 'all' 
+    ? eventsData 
+    : eventsData.filter(item => item.category === filter);
+
+  grid.innerHTML = filtered.map(item => `
+    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all text-left">
+      <img src="${item.img}" class="w-full h-48 object-cover" alt="${item.title}">
+      <div class="p-5 space-y-3">
+        <span class="inline-block px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-brand-blue/10 text-brand-blue dark:bg-brand-blue/30 dark:text-brand-yellow">
+          ${item.category}
+        </span>
+        <h3 class="font-bold text-base text-slate-900 dark:text-white leading-snug">${item.title}</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">${item.desc}</p>
+        <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-400">
+          <span>📅 ${item.date}</span>
+          <span>📍 ${item.location}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// FUNGSI PENAPIS BUTANG AKTIVITI
+function filterEvents(cat) {
+  renderEvents(cat);
+  
+  // Kemaskini warna butang aktif
+  document.querySelectorAll('.event-filter-btn').forEach(btn => {
+    if (btn.getAttribute('data-filter') === cat) {
+      btn.className = "event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-brand-blue text-white shadow-md";
+    } else {
+      btn.className = "event-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700";
+    }
+  });
+}
+
+// FUNGSI MEMAPARKAN GALERI
+function renderGallery() {
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+
+  grid.innerHTML = galleryData.map(item => `
+    <div class="group relative rounded-2xl overflow-hidden aspect-video sm:aspect-square bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm">
+      <img src="${item.img}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="${item.title}">
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+        <p class="text-white font-bold text-xs">${item.title}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+// JALANKAN AUTOMATIK SEMASA BUKA HALAMAN
+document.addEventListener('DOMContentLoaded', () => {
+  renderEvents('all');
+  renderGallery();
+});
+</script>
+</html>
