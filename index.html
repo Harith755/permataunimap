@@ -1910,7 +1910,7 @@ function handleFormSubmit(event) {
   const fakulti = document.getElementById('fakulti')?.value || '';
   const phone = document.getElementById('noPhone')?.value || '';
 
-  // 2. TUKAR NOMBOR INI KEPADA NOMBOR WHATSAPP PENERIMA (AJK / SETIAUSAHA)
+  // 2. NOMBOR WHATSAPP PENERIMA
   const nomborPenerima = "60179913373"; 
 
   // 3. Susun teks mesej kemas
@@ -1922,8 +1922,9 @@ function handleFormSubmit(event) {
                 `*No. Tel:* ${phone}`;
 
   // 4. Buka WhatsApp terus dengan data yang diisi
-  window.open(`https://wa.me/${60179913373}?text=${mesej}`, '_blank');
+  window.open(`https://wa.me/${nomborPenerima}?text=${mesej}`, '_blank');
 }
+
 // DATA AKTIVITI & EVENT
 let eventsData = [  
   {
@@ -1982,7 +1983,7 @@ let eventsData = [
     img: "https://i.postimg.cc/2ysqxv3p/explorace.jpg",
     desc: "Program ini menggabungkan elemen keseronokan, kerja berpasukan, kecergasan fizikal, serta memupuk semangat cinta akan tanah air dan menghargai khazanah tradisi."
   },
-    {
+  {
     title: "UNITY ARTS FESTIVAL",
     category: "25/26",
     date: "19-21 Jun 2026",
@@ -1990,7 +1991,7 @@ let eventsData = [
     img: "https://i.postimg.cc/tTgVRp8S/UAF.jpg",
     desc: "acara kemasyarakatan dan kebudayaan yang menggabungkan pelbagai bentuk ekspresi seni seperti seni visual, muzik, tarian, teater, dan kraf."
   },
-    {
+  {
     title: "STEM-VET CATALYST",
     category: "25/26",
     date: "29 May 2026",
@@ -1998,7 +1999,7 @@ let eventsData = [
     img: "https://i.postimg.cc/7Zv71vTg/stem-vet.jpg",
     desc: "Program STEM-VET Catalyst UniMAP melibatkan pembelajaran interaktif dan promosi UniMAP di SMK Kompleks Rantau Abang dan SMK Jerangau, lawatan ilmu dan komuniti di Rantau Abang Turtle Conservation and Information Center, penerokaan tapak bersejarah Bukit Besi, lawatan ke kincir angin UMT di Pantai Tok Jembal serta kunjungan ke Pasar Payang sebelum pulang ke UniMAP."
   },
-    {
+  {
     title: "PROGRAM SUKAN PERMATA KEBANGSAAN (SUPER-K) 3.0",
     category: "25/26",
     date: "29 May 2026",
@@ -2006,7 +2007,7 @@ let eventsData = [
     img: "https://i.postimg.cc/PJ9DF939/SUPER-K.jpg",
     desc: "sebuah kejohanan sukan tahunan (Supertip / Sukan Terengganu) yang menghimpunkan ratusan mahasiswa anak Terengganu dari pelbagai IPT untuk bersaing dalam pelbagai acara sukan, mengasah bakat, serta memupuk semangat kesukanan dan perpaduan."
   },
-    {
+  {
     title: "BAKTI SISWA PENYU (BASIP) 2.0",
     category: "25/26",
     date: "17-18 sep 2026",
@@ -2014,7 +2015,7 @@ let eventsData = [
     img: "https://i.postimg.cc/ZRJxrG23/basip-2-0.jpg",
     desc: "aktiviti kesukarelawanan yang dianjurkan oleh penuntut institusi pengajian tinggi (IPT) untuk berbakti dan berinteraksi secara langsung dengan komuniti setempat."
   },
-    {
+  {
     title: "PERMATA ALUMNI TRIBUTE NIGHT & ANNUAL GENERAL MEETING",
     category: "25/26",
     date: "18 Oct 2026",
@@ -2022,7 +2023,7 @@ let eventsData = [
     img: "https://i.postimg.cc/yd5y3L4V/AGM.jpg",
     desc: "Acara ini menggabungkan urusan rasmi pentadbiran persatuan dengan majlis makan malam penghargaan bagi merapatkan ukhuwah serta mengenang jasa alumni dan ahli jawatankuasa."
   },
-    {
+  {
     title: "Bonding AJK PERMATA",
     category: "23/24",
     date: "24 Dec 2023",
@@ -2030,7 +2031,7 @@ let eventsData = [
     img: "https://i.postimg.cc/RZr8ZQQn/Whats-App-Image-2026-10-24-at-7-08-06-PM.jpg",
     desc: "Program yang bertujuan mengeratkan hubungan silaturahim antara barisan Ahli Jawatankuasa PERMATA sesi 2023/2024 serta memupuk semangat kerjasama dan kesepaduan dalam organisasi."
   },
-    {
+  {
     title: "Smash Turtle",
     category: "23/24",
     date: "31 Dec 2023",
@@ -2038,7 +2039,7 @@ let eventsData = [
     img: "https://i.postimg.cc/8C4nw88y/Whats-App-Image-2026-10-24-at-7-08-06-PM-(1).jpg",
     desc: "Program sukan badminton yang bertujuan menggalakkan gaya hidup sihat, mengeratkan hubungan sesama ahli serta memupuk semangat kesukanan dalam kalangan peserta."
   },  
-    {
+  {
     title: "Kursus Pengurusan Organisasi Peringkat PERMATA Unimap",
     category: "23/24",
     date: "14 Jan 2024",
@@ -2046,7 +2047,7 @@ let eventsData = [
     img: "https://i.postimg.cc/02m6SPDg/Whats-App-Image-2026-10-24-at-7-08-05-PM-(2).jpg",
     desc: "Program berbentuk kursus dan perkongsian ilmu bagi meningkatkan pengetahuan serta kemahiran ahli jawatankuasa dalam aspek pengurusan organisasi, kepimpinan dan pelaksanaan program."
   },
-    {
+  {
     title: "Mountain Mastery (PERMATA X DRACC Unimap)",
     category: "23/24",
     date: "26 Jan 2023",
@@ -2054,7 +2055,7 @@ let eventsData = [
     img: "https://i.postimg.cc/hj3ZW9td/Whats-App-Image-2026-10-24-at-7-08-06-PM-(2).jpg",
     desc: "Program pendakian yang menggalakkan aktiviti rekreasi luar, membina ketahanan fizikal dan mental serta memupuk semangat kerjasama dan cintakan alam semula jadi."
   },
-    {
+  {
     title: "BBQ Bonanza",
     category: "23/24",
     date: "9 Mac 2024",
@@ -2062,7 +2063,7 @@ let eventsData = [
     img: "https://i.postimg.cc/MTdHWpCB/Whats-App-Image-2026-10-24-at-7-08-05-PM-(1).jpg",
     desc: "Program santai yang menghimpunkan ahli PERMATA dalam suasana mesra melalui aktiviti barbeku bagi mengeratkan ukhuwah dan mengukuhkan hubungan sesama ahli."
   },
-    {
+  {
     title: "Hari Kecemerlangan & Bantuan Kewangan Anak Terengganu",
     category: "23/24",
     date: "21 April 2024",
@@ -2070,7 +2071,7 @@ let eventsData = [
     img: "https://i.postimg.cc/J7SmjX5X/Whats-App-Image-2026-10-24-at-7-08-08-PM.jpg",
     desc: "Program penghargaan terhadap kecemerlangan akademik serta penyampaian bantuan kewangan kepada anak Terengganu bagi menyokong kebajikan dan perkembangan pendidikan pelajar."
   },
-    {
+  {
     title: "Wang Gunung Peak Attack (ROCK X PERMATA Unimap)",
     category: "23/24",
     date: "9 Jun 2024",
@@ -2078,7 +2079,7 @@ let eventsData = [
     img: "https://i.postimg.cc/4dzvwVhn/Whats-App-Image-2026-10-24-at-7-08-04-PM.jpg",
     desc: "Program pendakian hasil kerjasama ROCK dan PERMATA UniMAP yang bertujuan memupuk semangat kesukanan, meningkatkan ketahanan diri serta mengeratkan hubungan antara peserta."
   },
-    {
+  {
     title: "Beach Clean Up (PERMATA Unimap X Geng Plastik Ija GPI)",
     category: "23/24",
     date: "10 Ogos 2024",
@@ -2086,7 +2087,7 @@ let eventsData = [
     img: "https://i.postimg.cc/tJq65fjJ/Whats-App-Image-2026-10-24-at-7-08-05-PM.jpg",
     desc: "Program khidmat masyarakat yang memfokuskan aktiviti pembersihan pantai bagi meningkatkan kesedaran tentang penjagaan alam sekitar dan kepentingan mengurangkan pencemaran plastik."
   },
-    {
+  {
     title: "Baktisiswa Penyu",
     category: "23/24",
     date: "19-21 Sep 2024",
@@ -2094,7 +2095,7 @@ let eventsData = [
     img: "https://i.postimg.cc/ncwm40w0/Whats-App-Image-2026-10-24-at-7-08-07-PM.jpg",
     desc: "Program bakti siswa yang bertujuan menjalinkan hubungan antara mahasiswa dengan komuniti setempat melalui aktiviti kemasyarakatan, kebajikan dan kesukarelawanan."
   },
-    {
+  {
     title: "AGM PERMATA Unimap",
     category: "23/24",
     date: "26 Oct 2024",
@@ -2102,7 +2103,7 @@ let eventsData = [
     img: "https://i.postimg.cc/YqRT378D/Whats-App-Image-2026-10-24-at-7-08-07-PM-(2).jpg",
     desc: "Mesyuarat Agung Tahunan PERMATA UniMAP yang menjadi platform pembentangan laporan aktiviti, penilaian pencapaian organisasi serta perbincangan hala tuju persatuan."
   },
-    {
+  {
     title: "Permata Prihatin YPM",
     category: "23/24",
     date: "Sepanjang Sesi 23/24",
@@ -2110,7 +2111,7 @@ let eventsData = [
     img: "https://i.postimg.cc/XYCrw35j/Whats-App-Image-2026-10-24-at-7-08-06-PM-(3).jpg",
     desc: "Inisiatif kebajikan di bawah PERMATA UniMAP dengan sokongan YPM yang menyediakan bantuan kecemasan kepada ahli yang berhadapan dengan situasi seperti kemalangan, kematian dan bencana sepanjang sesi 2023/2024."
   },
-    {
+  {
     title: "Permata Happiness (Bas dan Makanan iftar)",
     category: "23/24",
     date: "Sepanjang Sesi 23/24",
@@ -2136,12 +2137,28 @@ let eventsData = [
   },
 ];
 
-// DATA GALERI
+// DATA GALERI ALBUM (Tukar "#" kepada pautan Google Drive sebenar bila bersedia)
 let galleryData = [
-  { title: "PERMATA UNIMAP SESI 23/24", img: "https://i.postimg.cc/L8CWq3m2/permata-banner-5x4-no-crop.png" },
-  { title: "PERMATA UNIMAP SESI 24/25", img: "https://i.postimg.cc/sXBZJsF9/Whats-App-Image-2026-11-08-at-4-07-08-AM.jpg" },
-  { title: "PERMATA UNIMAP SESI 25/26", img: "https://i.postimg.cc/9fCB27dV/Whats-App-Image-2026-11-08-at-4-00-48-AM.jpg" },
-  { title: "PERMATA UNIMAP SESI 26/27", img: "https://i.postimg.cc/RhBVnB4X/Whats-App-Image-2026-11-08-at-4-10-36-AM.jpg" }
+  { 
+    title: "PERMATA UNIMAP SESI 23/24", 
+    img: "https://i.postimg.cc/L8CWq3m2/permata-banner-5x4-no-crop.png",
+    link: "https://drive.google.com/drive/folders/1mLO1SKbCVSx9I31knulJ-EBGu_REa48J?usp=sharing" 
+  },
+  { 
+    title: "PERMATA UNIMAP SESI 24/25", 
+    img: "https://i.postimg.cc/sXBZJsF9/Whats-App-Image-2026-11-08-at-4-07-08-AM.jpg",
+    link: "https://drive.google.com/drive/folders/1mLO1SKbCVSx9I31knulJ-EBGu_REa48J?usp=sharing" 
+  },
+  { 
+    title: "PERMATA UNIMAP SESI 25/26", 
+    img: "https://i.postimg.cc/9fCB27dV/Whats-App-Image-2026-11-08-at-4-00-48-AM.jpg",
+    link: "https://drive.google.com/drive/folders/1mLO1SKbCVSx9I31knulJ-EBGu_REa48J?usp=sharing" 
+  },
+  { 
+    title: "PERMATA UNIMAP SESI 26/27", 
+    img: "https://i.postimg.cc/RhBVnB4X/Whats-App-Image-2026-11-08-at-4-10-36-AM.jpg",
+    link: "https://drive.google.com/drive/folders/1mLO1SKbCVSx9I31knulJ-EBGu_REa48J?usp=sharing" 
+  }
 ];
 
 // FUNGSI MEMAPARKAN AKTIVITI
@@ -2185,19 +2202,31 @@ function filterEvents(cat) {
   });
 }
 
-// FUNGSI MEMAPARKAN GALERI
+// FUNGSI MEMAPARKAN GALERI (REKAAN ALBUM COVER DRIVE)
 function renderGallery() {
   const grid = document.getElementById('galleryGrid');
   if (!grid) return;
 
   grid.innerHTML = galleryData.map(item => `
-    <div class="group relative rounded-2xl overflow-hidden aspect-video sm:aspect-square bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm">
-      <img src="${item.img}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="${item.title}">
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-        <p class="text-white font-bold text-xs">${item.title}</p>
+    <a href="${item.link}" target="_blank" class="group block overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all text-left">
+      <div class="relative h-48 w-full overflow-hidden">
+        <img src="${item.img}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="${item.title}">
+        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+          <span class="text-white text-xs font-bold bg-brand-blue px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Buka di Drive
+          </span>
+        </div>
       </div>
-    </div>
+      <div class="p-4 text-center">
+        <h3 class="font-bold text-sm text-slate-900 dark:text-white leading-snug">${item.title}</h3>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 font-medium">Klik untuk lihat album penuh</p>
+      </div>
+    </a>
   `).join('');
+
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 }
 
 // JALANKAN AUTOMATIK SEMASA BUKA HALAMAN
