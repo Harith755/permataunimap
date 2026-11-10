@@ -432,27 +432,82 @@
       </div>
     </section>
 
-    <!-- GALLERY & MOMENTS -->
-    <section id="gallery" class="py-16 md:py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors">
-      <div class="container mx-auto px-4 md:px-8">
-        
-        <div class="text-center max-w-2xl mx-auto mb-12">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-yellow/30 text-slate-900 font-bold text-xs uppercase tracking-wider mb-3">
-            <i data-lucide="image" class="w-3.5 h-3.5"></i>
-            Memori PERMATA
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Galeri & Lensa Kenangan</h2>
-          <p class="text-slate-600 dark:text-slate-400 mt-2">Koleksi gambar aktiviti dan pengalaman mahasiswa Terengganu di UniMAP.</p>
-        </div>
-
-        <!-- Gallery Grid -->
-        <div id="galleryGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <!-- Populated by JavaScript -->
-        </div>
-
+  <!-- ========================================== -->
+<!-- SEKSYEN PESONA TERENGGANU MULA DI SINI     -->
+<!-- ========================================== -->
+<section id="pesona-terengganu" class="py-20 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+<!-- Header Seksyen -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      
+      <!-- Highlight Ala 'Memori Permata' -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-yellow/30 text-slate-900 dark:text-brand-yellow dark:bg-brand-yellow/10 font-bold text-xs uppercase tracking-wider mb-3">
+        <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+        Pesona Terengganu
       </div>
-    </section>
+      
+      <!-- Tajuk Utama & Subtajuk -->
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Menyingkap Keindahan, Menghayati Warisan</h2>
+      <p class="text-slate-600 dark:text-slate-400 mt-3">Kenali identiti, kebudayaan, makanan tradisional dan keunikan lapan daerah negeri Darul Iman.</p>
+      
+    </div>
 
+    <!-- Bahagian A: Jelajah 8 Daerah -->
+    <div class="mb-20">
+      <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 border-l-4 border-brand-blue pl-4">Jelajah 8 Daerah</h3>
+      
+      <!-- Butang Pilihan Daerah (Interaktif) -->
+      <div class="flex flex-wrap gap-3 mb-8" id="daerah-tabs">
+        <!-- Butang akan dijana oleh JavaScript -->
+      </div>
+
+      <!-- Kad Maklumat Daerah -->
+      <div id="daerah-content" class="bg-white dark:bg-slate-800 rounded-3xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden flex flex-col md:flex-row transition-all duration-500">
+        <!-- Maklumat daerah akan dipaparkan di sini oleh JavaScript -->
+      </div>
+    </div>
+
+    <!-- Bahagian B & C: Cita Rasa & Warisan (Grid 2 Kolum) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+      
+      <!-- Cita Rasa Terengganu -->
+      <div>
+        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 border-l-4 border-brand-yellow pl-4">Cita Rasa Terengganu</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4" id="makanan-grid">
+          <!-- Gambar makanan dijana oleh JS -->
+        </div>
+      </div>
+
+      <!-- Seni, Budaya & Warisan -->
+      <div>
+        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 border-l-4 border-brand-blue pl-4">Seni & Warisan</h3>
+        <div class="grid grid-cols-2 gap-4" id="warisan-grid">
+          <!-- Gambar warisan dijana oleh JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Bahagian D: Anak Terengganu di UniMAP -->
+    <div class="bg-gradient-to-br from-brand-blue to-blue-900 rounded-3xl p-8 md:p-12 text-white shadow-xl relative overflow-hidden">
+       <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div class="lg:w-2/3">
+            <h3 class="text-3xl font-bold text-brand-yellow mb-4">Anak Terengganu di UniMAP</h3>
+            <p class="text-blue-100 mb-8 text-lg leading-relaxed">Berjauhan dari kampung halaman, namun semangat kekitaan dan warisan negeri terus mekar di utara tanah air. Kami mahasiswa PERMATA sentiasa bersatu membawa identiti Darul Iman!</p>
+            
+          </div>
+          <div class="lg:w-1/3 w-full">
+             <img src="https://i.postimg.cc/mgcXkGWy/bonding.jpg" alt="Aktiviti Mahasiswa" class="w-full h-64 object-cover rounded-2xl shadow-lg border-4 border-white/10 group-hover:scale-105 transition-transform duration-500">
+          </div>
+       </div>
+    </div>
+
+  </div>
+</section>
+<!-- ========================================== -->
+<!-- SEKSYEN PESONA TERENGGANU TAMAT DI SINI    -->
+<!-- ========================================== -->
+  
     <!-- CONTACT & JOIN FORM SECTION -->
     <section id="hubungi" class="py-16 md:py-24 bg-slate-900 text-white transition-colors">
       
@@ -1316,6 +1371,136 @@ function renderLeadershipTree() {
 
 </body>
 
+<script>
+// ==========================================
+// DATA & LOGIK PESONA TERENGGANU
+// ==========================================
+
+const daerahTerengganu = [
+  { id: 'kt', nama: 'Kuala Terengganu', mercu: 'Drawbridge (Jambatan Angkat)', makanan: 'Nasi Dagang', fakta: 'Pusat pentadbiran negeri dan nadi ekonomi. Terkenal dengan Pasar Payang dan keindahan senibina Islam moden.', img: 'https://images.unsplash.com/photo-1596422846543-7ce3a2d48ec6?auto=format&fit=crop&w=800&q=80' },
+  { id: 'kn', nama: 'Kuala Nerus', mercu: 'Masjid Kaca (Tengku Tengah Zaharah)', makanan: 'Keropok Lekor Seberang Takir', fakta: 'Daerah termuda di Terengganu. Dikenali sebagai hab pendidikan kerana terletaknya UMT dan UniSZA.', img: 'https://images.unsplash.com/photo-1620619767323-b95a89183081?auto=format&fit=crop&w=800&q=80' },
+  { id: 'besut', nama: 'Besut', mercu: 'Pulau Perhentian & Bukit Keluang', makanan: 'Nasi Sumatera', fakta: 'Bersempadan dengan Kelantan, mempunyai loghat dan gabungan budaya yang sangat unik dan tersendiri.', img: 'https://images.unsplash.com/photo-1549429532-6a7516b3f742?auto=format&fit=crop&w=800&q=80' },
+  { id: 'setiu', nama: 'Setiu', mercu: 'Setiu Wetlands', makanan: 'Laksam & Kuih Tradisional', fakta: 'Satu-satunya kawasan di Malaysia yang mempunyai 9 ekosistem berbeza yang bersambung antara satu sama lain.', img: 'https://images.unsplash.com/photo-1590059345719-74d1a013f990?auto=format&fit=crop&w=800&q=80' },
+  { id: 'ht', nama: 'Hulu Terengganu', mercu: 'Tasik Kenyir & Air Terjun Sekayu', makanan: 'Ikan Baung Masak Tempoyak', fakta: 'Satu-satunya daerah di Terengganu yang tidak bersempadan dengan laut. Syurga ekopelancongan dan bebas cukai.', img: 'https://images.unsplash.com/photo-1614217112004-946927361a49?auto=format&fit=crop&w=800&q=80' },
+  { id: 'marang', nama: 'Marang', mercu: 'Pulau Kapas', makanan: 'Nasi Dagang Atas Tol', fakta: 'Terkenal dengan suasana perkampungan nelayan yang damai dan pantai yang memutih indah.', img: 'https://images.unsplash.com/photo-1600100412852-5df58097b617?auto=format&fit=crop&w=800&q=80' },
+  { id: 'dungun', nama: 'Dungun', mercu: 'Bukit Besi & Pantai Teluk Bidara', makanan: 'Nasi Minyak Dungun', fakta: 'Pernah menjadi pengeluar bijih besi terbesar di Asia Tenggara pada era sebelum merdeka.', img: 'https://images.unsplash.com/photo-1589307357839-2785d0d8fb40?auto=format&fit=crop&w=800&q=80' },
+  { id: 'kemaman', nama: 'Kemaman', mercu: 'Pantai Cherating & Hai Peng', makanan: 'Sata & Kerepok', fakta: 'Pintu gerbang selatan Terengganu. Daerah paling pesat dengan industri petroleum dan gas.', img: 'https://images.unsplash.com/photo-1622081156829-8736d7560790?auto=format&fit=crop&w=800&q=80' }
+];
+
+const citaRasa = [
+  { nama: 'Nasi Dagang', img: 'https://i.postimg.cc/k47Z168H/nasidagang.jpg' },
+  { nama: 'Keropok Lekor', img: 'https://i.postimg.cc/k47Z168H/keropok.jpg' },
+  { nama: 'Sata', img: 'https://i.postimg.cc/k47Z168H/sata.jpg' },
+  { nama: 'Laksam', img: 'https://i.postimg.cc/k47Z168H/laksam.jpg' },
+  { nama: 'Akok', img: 'https://i.postimg.cc/k47Z168H/akok.jpg' },
+  { nama: 'Ketupat Sotong', img: 'https://i.postimg.cc/k47Z168H/ketupat.jpg' }
+];
+
+const warisan = [
+  { nama: 'Batik Terengganu', img: 'https://i.postimg.cc/k47Z168H/batik.jpg' },
+  { nama: 'Songket', img: 'https://i.postimg.cc/k47Z168H/songket.jpg' },
+  { nama: 'Wau Bulan', img: 'https://i.postimg.cc/k47Z168H/wau.jpg' },
+  { nama: 'Rumah Tradisional', img: 'https://i.postimg.cc/k47Z168H/rumah.jpg' }
+];
+
+// Fungsi Papar Info Daerah
+function paparDaerah(id) {
+  const daerah = daerahTerengganu.find(d => d.id === id);
+  if(!daerah) return;
+
+  // Kemaskini UI Butang
+  document.querySelectorAll('.btn-daerah').forEach(btn => {
+    if(btn.dataset.id === id) {
+      btn.className = "btn-daerah px-5 py-2.5 rounded-full text-sm font-bold bg-brand-blue text-white shadow-md transition-all";
+    } else {
+      btn.className = "btn-daerah px-5 py-2.5 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all";
+    }
+  });
+
+  // Kemaskini Kandungan Kad
+  const contentDiv = document.getElementById('daerah-content');
+  if(contentDiv) {
+    contentDiv.innerHTML = `
+      <div class="md:w-1/2 relative h-64 md:h-auto">
+        <img src="${daerah.img}" class="absolute inset-0 w-full h-full object-cover" alt="${daerah.nama}">
+      </div>
+      <div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
+        <h4 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">${daerah.nama}</h4>
+        <p class="text-slate-600 dark:text-slate-400 mb-6">${daerah.fakta}</p>
+        
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-lg text-brand-blue dark:text-brand-yellow">
+              📍
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-slate-400 uppercase">Mercu Tanda</span>
+              <span class="text-sm font-semibold text-slate-800 dark:text-slate-200">${daerah.mercu}</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-brand-yellow/20 dark:bg-brand-yellow/10 rounded-lg text-brand-blue dark:text-brand-yellow">
+              🍽️
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-slate-400 uppercase">Makanan Popular</span>
+              <span class="text-sm font-semibold text-slate-800 dark:text-slate-200">${daerah.makanan}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+}
+
+// Fungsi Render Semua Komponen Pesona Terengganu
+function initPesonaTerengganu() {
+  // 1. Render Butang Daerah
+  const tabsDiv = document.getElementById('daerah-tabs');
+  if(tabsDiv) {
+    tabsDiv.innerHTML = daerahTerengganu.map(d => 
+      `<button class="btn-daerah" data-id="${d.id}" onclick="paparDaerah('${d.id}')">${d.nama}</button>`
+    ).join('');
+    // Papar Kuala Terengganu sebagai default
+    paparDaerah('kt');
+  }
+
+  // 2. Render Cita Rasa
+  const makananDiv = document.getElementById('makanan-grid');
+  if(makananDiv) {
+    makananDiv.innerHTML = citaRasa.map(m => `
+      <div class="group relative rounded-xl overflow-hidden aspect-square border border-slate-200 dark:border-slate-800">
+        <img src="${m.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 bg-slate-200" alt="${m.nama}">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+          <h5 class="text-white font-bold text-sm md:text-base">${m.nama}</h5>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // 3. Render Warisan
+  const warisanDiv = document.getElementById('warisan-grid');
+  if(warisanDiv) {
+    warisanDiv.innerHTML = warisan.map(w => `
+      <div class="group relative rounded-xl overflow-hidden aspect-[4/3] border border-slate-200 dark:border-slate-800">
+        <img src="${w.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 bg-slate-200" alt="${w.nama}">
+        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+          <h5 class="text-white font-extrabold text-center tracking-wide text-sm md:text-lg drop-shadow-md">${w.nama}</h5>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+// JALANKAN AUTOMATIK SEMASA BUKA HALAMAN
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof renderEvents === 'function') renderEvents('all'); // fungsi lama anda
+  if (typeof renderGallery === 'function') renderGallery(); // fungsi lama anda
+  initPesonaTerengganu(); // <--- FUNGSI BARU DITAMBAH DI SINI
+});
+</script>
+  
 <script>
   function closeBanner() {
     const banner = document.getElementById('topBanner');
